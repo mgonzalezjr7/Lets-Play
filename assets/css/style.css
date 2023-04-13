@@ -20,7 +20,7 @@
     }
   }
   
-  /* Apply the animation to buttons on hover */
+/* Apply the animation to buttons on hover */
 button:hover {
     animation: wiggle 0.3s ease-in-out;
   }
@@ -38,6 +38,7 @@ button {
     transition: all 0.2s ease-in-out;
   }
   
+/* Apply background and effect to webpage */
 .background {
     position: fixed;
     top: 0;
