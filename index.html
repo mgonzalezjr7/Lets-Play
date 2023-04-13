@@ -28,28 +28,36 @@
 <body class="bg-gray-800">
     <nav class="flex flex-row justify-between items-center py-5 px-4">
         <!-- LOGO -->
-        <img src="./assets/images/Lets Play Final.png" alt="Lets Play Logo" class="mx-auto">
+        <img src="./assets/images/Lets Play Final.png" alt="Lets Play Logo" class="mx-auto" style="width: 350px;">
         <div class="flex justify-end">
             <!-- SAVED BTTN -->
-            <button class="px-2 py-1 rounded-lg mx-2">
+            <button class="px-2 py-1 rounded-lg mx-2" id="saved-bttn">
                 <img src="./assets/images/saved.png" alt="Saved">
             </button>
             <!-- SEARCH BTTN -->
-            <button class="px-2 py-1 rounded-lg mx-2">
+            <button class="px-2 py-1 rounded-lg mx-2" id="search-bttn">
                 <img src="./assets/images/Search.png" alt="Search">
             </button>
         </div>
     </nav>
     <!-- START BTTN -->
     <div class="h-screen flex justify-center items-center">
-        <button class="px-8 py-4 rounded-full shadow-lg">
+        <button class="px-8 py-4 rounded-full shadow-lg shadow-xl" id="start-bttn">
             <img src="./assets/images/Start.png" alt="Start">
         </button>        
     </div>
+
     <!-- BACKGROUND -->
     <div class="background">
     <img src="./assets/images/gaming(960x540).jpg" alt="Girl in gaming chair gaming">
     </div>
+
+    <footer class="fixed bottom-0 w-full text-center">
+        <p class="inline-block bg-gray-800 text-white px-4 py-2 rounded-lg text-sm">
+         All rights reserved 2023-2024 © Buttcheeks.Co
+        </p>
+      </footer>
+      
     
 
     <script src="assets/js/script.js"></script>
