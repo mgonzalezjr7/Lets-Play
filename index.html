@@ -9,25 +9,56 @@
 <!-- STYLE SHEETS -->
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+<!-- TAILWIND CONFIG -->
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+                green: '#51B848',
+              }
+            }
+          }
+        }
+      </script>
 </head>
 
-<body>
-    <nav class="flex flex-row justify-between py-5 px-4">
-        <!-- LOGO PLACE HOLDER -->
-        <h1 class="basis-1/2 text-lg text-center center font-bold">
-            LETS PLAY!
-        </h1>
-        <button class="text-center border border-gray-500 px-2 py-1 rounded-lg mr-2">
-            Saved Games
-        </button>
-        <button class="text-center border border-gray-500 px-2 py-1 rounded-lg flex-shrink-0">
-            Search
-        </button>
+<!-- TEXT BODY -->
+<body class="bg-gray-800">
+    <nav class="flex flex-row justify-between items-center py-5 px-4">
+        <!-- LOGO -->
+        <img src="./assets/images/Lets Play Final.png" alt="Lets Play Logo" class="mx-auto">
+        <div class="flex justify-end">
+            <!-- SAVED BTTN -->
+            <button class="px-2 py-1 rounded-lg mx-2">
+                <img src="./assets/images/saved.png" alt="Saved">
+            </button>
+            <!-- SEARCH BTTN -->
+            <button class="px-2 py-1 rounded-lg mx-2">
+                <img src="./assets/images/Search.png" alt="Search">
+            </button>
+        </div>
     </nav>
+    <!-- START BTTN -->
+    <div class="h-screen flex justify-center items-center">
+        <button class="px-8 py-4 rounded-full shadow-lg">
+            <img src="./assets/images/Start.png" alt="Start">
+        </button>        
+    </div>
+    <!-- BACKGROUND -->
+    <div class="background">
+    <img src="./assets/images/gaming(960x540).jpg" alt="Girl in gaming chair gaming">
+    </div>
     
 
     <script src="assets/js/script.js"></script>
 </body>
 
 </html>
+
+<!-- Save for later -->
+
+    <!-- <button class="text-center bg-green text-white text-bold px-2 py-1 rounded-lg mx-2">
+        <img src="./assets/images/saved.png" alt="Saved">
+    </button> -->
