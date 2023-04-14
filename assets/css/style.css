@@ -62,3 +62,25 @@ button {
     right: 0;
     z-index: 9999;
   }
+
+  /* Question CSS*/
+  #question-section {
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #question-section button {
+    transition: none;
+  }
+
+  /* Buttons without animation */
+  .no-animation {
+  animation: none !important;
+  }
+ 
+  @media screen and (max-width: 768px) {
+    #question-section {
+      flex-direction: column;
+    }
+  }

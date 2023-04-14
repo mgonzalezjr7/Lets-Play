@@ -13,4 +13,15 @@ fetch(testUrl)
   .then(function (data) {
     console.log(data);
   });
+
+
+  // BUTTONS
+  const startBtn = document.getElementById('start-bttn');
+  const questionSection = document.getElementById('question-section');
+  
+  startBtn.addEventListener('click', () => {
+    startBtn.classList.add('hidden');
+    questionSection.classList.remove('hidden');
+    questionSection.style.display='flex';
+  });
   
