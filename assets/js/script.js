@@ -19,51 +19,53 @@ fetch(url2)
 
 
   // BUTTONS
-  const startBtn = document.getElementById('start-bttn');
-  const questionSection = document.getElementById('question-section');
+const startBtn = document.getElementById('start-bttn');
+  // const questionSection = document.getElementById('question-section');
   
-  startBtn.addEventListener('click', () => {
-    startBtn.classList.add('hidden');
-    questionSection.classList.remove('hidden');
-    questionSection.style.display='flex';
-  });
+  // startBtn.addEventListener('click', () => {
+  //   startBtn.classList.add('hidden');
+  //   questionSection.classList.remove('hidden');
+  //   questionSection.style.display='flex';
+  // });
    
 // console.log("----------------------")
 
 // https://api.rawg.io/api?genre=" + genre + ""
 
 
-const questions = [{
-  question: "What do you feel like playing on?",
-  options: [
-      "Playstation",
-      "XBOX",
-      "Nintendo",
-      "PC",
-      "Mobile"
-  ],
-},
-{
-  question: "Good choice! Now are we going solo or looking to play with your friend(s)",
-  options: [
-      "Solo",
-      "Friends",
-  ],
-},
-{
-  question: "What genre are you in the mood for today/tonight?",
-  options: [
-      "Action",
-      "Adventure",
-      "Shooter",
-      "RPG",
-      "Indie"
-  ],
-},
-];
+// const questions = [{
+//   question: "What do you feel like playing on?",
+//   options: [
+//       "Playstation",
+//       "XBOX",
+//       "Nintendo",
+//       "PC",
+//       "Mobile"
+//   ],
+// },
+// {
+//   question: "Good choice! Now are we going solo or looking to play with your friend(s)",
+//   options: [
+//       "Solo",
+//       "Friends",
+//   ],
+// },
+// {
+//   question: "What genre are you in the mood for today/tonight?",
+//   options: [
+//       "Action",
+//       "Adventure",
+//       "Shooter",
+//       "RPG",
+//       "Indie"
+//   ],
+// },
+// ];
 
-(function(){
+startBtn.addEventListener('click', function() {
+  startBtn.classList.add('hidden');
   function buildQuiz(){
+    
     // variable to store the HTML output
     const output = [];
 
@@ -80,7 +82,7 @@ const questions = [{
           // ...add an HTML radio button
           answers.push(
             `<label>
-              <input type="radio" name="question${questionNumber}" value="${letter}">
+              <input type="button" name="question${questionNumber}" value="${letter}">
               ${letter} :
               ${currentQuestion.answers[letter]}
             </label>`
@@ -96,6 +98,7 @@ const questions = [{
     );
 
     // finally combine our output list into one string of HTML and put it on the page
+    quizContainer.style.display = 'flex'
     quizContainer.innerHTML = output.join('');
   }
 
@@ -134,7 +137,7 @@ const questions = [{
     resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
   }
 
-  const quizContainer = document.getElementById('quiz');
+  const quizContainer = document.getElementById('question-section');
   const resultsContainer = document.getElementById('results');
   const submitButton = document.getElementById('submit');
   const myQuestions = [
@@ -172,8 +175,8 @@ const questions = [{
   buildQuiz();
 
   // Event listeners
-  submitButton.addEventListener('click', showResults);
-})();
+  // submitButton.addEventListener('click', showResults);
+});
 
 
 
