@@ -9,261 +9,156 @@ var url3 = "https://api.rawg.io/api/platforms/lists/parents?key=ac7de14847e84d37
 var url4 = "https://api.rawg.io/api/tags?page_size=50&key=ac7de14847e84d37be3b60940720db8c"
 var devUrl = "https://api.rawg.io/api/developers?page_size=50&key=ac7de14847e84d37be3b60940720db8c&page=5"
 
-fetch(url2)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-  });
+// fetch(url2)
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     console.log(data);
+//   });
 
 
-  // BUTTONS
-  const startBtn = document.getElementById('start-bttn');
-  const searchBtn = document.getElementById("search-bttn");
-  const questionSection = document.getElementById('question-section');
-  const searchSection = document.getElementById("search-section");
-  const searchForm = document.getElementById("search-form");
+// BUTTONS
+const startBtn = document.getElementById('start-bttn');
+const searchBtn = document.getElementById("search-bttn");
+const questionSection = document.getElementById('question-section');
+const searchSection = document.getElementById("search-section");
+const searchForm = document.getElementById("search-form");
   
-  // startBtn.addEventListener('click', () => {
-  //   startBtn.classList.add('hidden');
-  //   questionSection.classList.remove('hidden');
-  //   questionSection.style.display='flex';
-  // });
+// startBtn.addEventListener('click', () => {
+//   startBtn.classList.add('hidden');
+//   questionSection.classList.remove('hidden');
+//   questionSection.style.display='flex';
+// });
 
-  searchBtn.addEventListener("click", function() {
-    startBtn.classList.add("hidden");
-    questionSection.classList.add("hidden");
-    searchSection.style.display='flex'
-  });
+startBtn.addEventListener("click", () => {
+  startBtn.style.display = "none";
+  questionSection.style.display = "flex";
+  showQuestion();
+});
+
+searchBtn.addEventListener("click", function() {
+  startBtn.classList.add("hidden");
+  questionSection.classList.add("hidden");
+  searchSection.style.display='flex'
+});
 
 // console.log("----------------------")
 
 // https://api.rawg.io/api?genre=" + genre + ""
 
-
-// const questions = [{
-//   question: "What do you feel like playing on?",
-//   options: [
-//       "Playstation",
-//       "XBOX",
-//       "Nintendo",
-//       "PC",
-//       "Mobile"
-//   ],
-// },
-// {
-//   question: "Good choice! Now are we going solo or looking to play with your friend(s)",
-//   options: [
-//       "Solo",
-//       "Friends",
-//   ],
-// },
-// {
-//   question: "What genre are you in the mood for today/tonight?",
-//   options: [
-//       "Action",
-//       "Adventure",
-//       "Shooter",
-//       "RPG",
-//       "Indie"
-//   ],
-// },
-// ];
-
-startBtn.addEventListener('click', function() {
-  startBtn.classList.add('hidden');
-  function buildQuiz(){
-    
-    // variable to store the HTML output
-    const output = [];
-
-    // for each question...
-    myQuestions.forEach(
-      (currentQuestion, questionNumber) => {
-
-        // variable to store the list of possible answers
-        const answers = [];
-
-        // and for each available answer...
-        for(letter in currentQuestion.answers){
-
-          // ...add an HTML radio button
-          answers.push(
-            `<label>
-              <input type="button" name="question${questionNumber}" value="${letter}">
-              ${letter} :
-              ${currentQuestion.answers[letter]}
-            </label>`
-          );
-        }
-
-        // add this question and its answers to the output
-        output.push(
-          `<div class="question"> ${currentQuestion.question} </div>
-          <div class="answers"> ${answers.join('')} </div>`
-        );
-      }
-    );
-
-    // finally combine our output list into one string of HTML and put it on the page
-    quizContainer.style.display = 'flex'
-    quizContainer.innerHTML = output.join('');
+const questions = [
+  {
+    question: "What do you feel like playing on?",
+    options: [
+      "Playstation",
+      "XBOX",
+      "Nintendo",
+      "PC",
+      "Mobile"
+    ],
+  },
+  {
+    question: "Good choice! Now are we going solo or looking to play with your friend(s)",
+    options: [
+      "Solo",
+      "Friends",
+    ],
+  },
+  {
+    question: "What genre are you in the mood for today/tonight?",
+    options: [
+      "Action",
+      "Adventure",
+      "Shooter",
+      "RPG",
+      "Indie"
+    ],
   }
+];
 
-  function showResults(){
 
-    // gather answer containers from our quiz
-    const answerContainers = quizContainer.querySelectorAll('.answers');
+const questionContainer = document.getElementById("question");
+const optionContainer = document.getElementById("options");
+const scoreContainer = document.getElementById("score");
 
-    // keep track of user's answers
-    let numCorrect = 0;
+let chosenConsole;
+let chosenWayToPlay;
+let chosenGenre;
 
-    // for each question...
-    myQuestions.forEach( (currentQuestion, questionNumber) => {
+let currentQuestionIndex = 0;
 
-      // find selected answer
-      const answerContainer = answerContainers[questionNumber];
-      const selector = `input[name=question${questionNumber}]:checked`;
-      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+function showQuestion() {
+  const question = questions[currentQuestionIndex];
+  questionContainer.textContent = question.question;
 
-      // if answer is correct
-      if(userAnswer === currentQuestion.correctAnswer){
-        // add to the number of correct answers
-        numCorrect++;
-
-        // color the answers green
-        answerContainers[questionNumber].style.color = 'lightgreen';
+  optionContainer.innerHTML = "";
+  question.options.forEach((option) => {
+    const button = document.createElement("button");
+    button.textContent = option;
+    button.classList.add("option");
+    optionContainer.appendChild(button);
+    button.addEventListener("click", () => {
+      if (option === "Playstation") {
+        alert("Playstation")
+        chosenConsole = "Playstation"
       }
-      // if answer is wrong or blank
-      else{
-        // color the answers red
-        answerContainers[questionNumber].style.color = 'red';
+      else if (option === "XBOX") {
+          alert("XBOX");
+          chosenConsole = "XBOX";
+        }
+        else if (option === "Nintendo") {
+          alert("Nintendo")
+          chosenConsole = "Nintendo";
+        }
+        else if (option === "PC") {
+          alert("PC")
+          chosenConsole = "PC";
+        }
+        else if (option === "Mobile") {
+          alert("Mobile")
+          chosenConsole = "Mobile";
+        }
+        else if (option === "Solo") {
+          alert("Solo")
+          chosenWayToPlay = "Solo!";
+        }
+        else if (option === "Friends") {
+          alert("Friends")
+          chosenWayToPlay = "with Friends!";
+        }
+        else if (option === "Action") {
+          alert("Action")
+          chosenGenre = "Action!";
+        }
+        else if (option === "Adventure") {
+          alert("Adventure")
+          chosenGenre = "Adventure!";
+        }
+        else if (option === "Shooter") {
+          alert("Shooter")
+          chosenGenre = "Shooters!";
+        }
+        else if (option === "RPG") {
+          alert("RPG")
+          chosenGenre = "RPGs!";
+        }
+        else if (option === "Indie") {
+          alert("Indie")
+          chosenGenre = "Indie!";
+        }
+      currentQuestionIndex++;
+
+      if (currentQuestionIndex === questions.length) {
+        showResults();
+        alert("My favorite way to game is on " + chosenConsole + " and my favorite way to play is " + chosenWayToPlay + " Also my favorite genre is " + chosenGenre)
+      } else {
+        showQuestion();
       }
     });
+  });
+}
 
-    // show number of correct answers out of total
-    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
-  }
-
-  const quizContainer = document.getElementById('question-section');
-  const resultsContainer = document.getElementById('results');
-  const submitButton = document.getElementById('submit');
-  const myQuestions = [
-    {
-      question: "Who invented JavaScript?",
-      answers: {
-        a: "Douglas Crockford",
-        b: "Sheryl Sandberg",
-        c: "Brendan Eich"
-      },
-      correctAnswer: "c"
-    },
-    {
-      question: "Which one of these is a JavaScript package manager?",
-      answers: {
-        a: "Node.js",
-        b: "TypeScript",
-        c: "npm"
-      },
-      correctAnswer: "c"
-    },
-    {
-      question: "Which tool can you use to ensure code quality?",
-      answers: {
-        a: "Angular",
-        b: "jQuery",
-        c: "RequireJS",
-        d: "ESLint"
-      },
-      correctAnswer: "d"
-    }
-  ];
-
-  // Kick things off
-  buildQuiz();
-
-  // Event listeners
-  // submitButton.addEventListener('click', showResults);
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//This function can be used for the start button on the home page
-
-
-// function letGameBegin() {
-//   var startBtnEl = document.querySelector("#start-bttn")
-//   startBtnEl.addEventListener("click", function() {
-//   showQuestion();
-//   })
-// }
-
-// function showQuestion() {
-//       const question = questions[currentQuestion];
-//       let html = `
-//       <h2>${question.question}</h2>
-//       <ul>
-//       `;
-//       for (let option of question.options) {
-//           html +=
-//           `<li><button onclick="checkAnswer('${option}')">${option}</button></li>`
-//           ;
-//       }
-//       html += "</ul>";
-// }
-
-
-
-
-
-// function checkAnswer(answer) {
-//   const question = questions[currentQuestion];
-//   if (answer === questions[currentQuestion].answer) {
-//       score++;
-//       currentQuestion++;
-//       if(currentQuestion >= questions.length) {
-//           clearInterval(timerId);
-//           showGameOver();
-//       } else {
-//           showQuestion();
-//       }
-//   } else {
-//       timeLeft -= 15;
-//       if(timeLeft <= 0) {
-//           clearInterval(timerId);
-//           showGameOver();
-//       } else {
-//           showQuestion();
-//       }
-//   }
-//   if (answer === question.answer) {
-//       score++;
-//   }
-//   currentQuestion++;
-//   if (currentQuestion === questions.length) {
-//       showGameOver();
-//   } else {
-//       showQuestion();
-//   }
-// }
-
-// function sendGame() {
-//   const html = `<h2>Results</h2><p>You got ${score} out of ${questions.length} questions correct.</p><button onclick="letGameBegin()">Play Again</button>`;
-//   document.getElementById("Game").innerHTML = html;
-// }
-// letGameBegin();
-// let timerId = setInterval(updateTimer, 1000);
-  
+function showResults() {
+  questionSection.style.display = "none";
+}
