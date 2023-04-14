@@ -20,14 +20,23 @@ fetch(url2)
 
   // BUTTONS
   const startBtn = document.getElementById('start-bttn');
+  const searchBtn = document.getElementById("search-bttn");
   const questionSection = document.getElementById('question-section');
+  const searchSection = document.getElementById("search-section");
+  const searchForm = document.getElementById("search-form");
   
   startBtn.addEventListener('click', () => {
     startBtn.classList.add('hidden');
     questionSection.classList.remove('hidden');
     questionSection.style.display='flex';
   });
-   
+
+  searchBtn.addEventListener("click", function() {
+    startBtn.classList.add("hidden");
+    questionSection.classList.add("hidden");
+    searchSection.style.display='flex'
+  });
+
 // console.log("----------------------")
 
 // https://api.rawg.io/api?genre=" + genre + ""
