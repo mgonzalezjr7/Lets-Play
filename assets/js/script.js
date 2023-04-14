@@ -55,7 +55,10 @@ const questions = [{
 
 //This function can be used for the start button on the home page
 // function letGameBegin() {
+//   var startBtnEl = document.querySelector("#start-bttn")
+//   startBtnEl.addEventListener("click", function() {
 //   showQuestion();
+//   })
 // }
 
 // function showQuestion() {
@@ -70,7 +73,6 @@ const questions = [{
 //           ;
 //       }
 //       html += "</ul>";
-//       document.getElementById("Game").innerHTML = html;
 // }
 
 
