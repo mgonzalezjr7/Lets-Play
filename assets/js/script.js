@@ -27,4 +27,102 @@ fetch(url2)
     questionSection.classList.remove('hidden');
     questionSection.style.display='flex';
   });
+   
+// console.log("----------------------")
+
+// https://api.rawg.io/api?genre=" + genre + ""
+
+
+const questions = [{
+  question: "What do you feel like playing on?",
+  options: [
+      "Playstation",
+      "XBOX",
+      "Nintendo",
+      "PC",
+      "Mobile"
+  ],
+},
+{
+  question: "Good choice! Now are we going solo or looking to play with your friend(s)",
+  options: [
+      "Solo",
+      "Friends",
+  ],
+},
+{
+  question: "What genre are you in the mood for today/tonight?",
+  options: [
+      "Action",
+      "Adventure",
+      "Shooter",
+      "RPG",
+      "Indie"
+  ],
+},
+];
+
+
+
+//This function can be used for the start button on the home page
+// function letGameBegin() {
+//   var startBtnEl = document.querySelector("#start-bttn")
+//   startBtnEl.addEventListener("click", function() {
+//   showQuestion();
+//   })
+// }
+
+// function showQuestion() {
+//       const question = questions[currentQuestion];
+//       let html = `
+//       <h2>${question.question}</h2>
+//       <ul>
+//       `;
+//       for (let option of question.options) {
+//           html +=
+//           `<li><button onclick="checkAnswer('${option}')">${option}</button></li>`
+//           ;
+//       }
+//       html += "</ul>";
+// }
+
+
+
+// function checkAnswer(answer) {
+//   const question = questions[currentQuestion];
+//   if (answer === questions[currentQuestion].answer) {
+//       score++;
+//       currentQuestion++;
+//       if(currentQuestion >= questions.length) {
+//           clearInterval(timerId);
+//           showGameOver();
+//       } else {
+//           showQuestion();
+//       }
+//   } else {
+//       timeLeft -= 15;
+//       if(timeLeft <= 0) {
+//           clearInterval(timerId);
+//           showGameOver();
+//       } else {
+//           showQuestion();
+//       }
+//   }
+//   if (answer === question.answer) {
+//       score++;
+//   }
+//   currentQuestion++;
+//   if (currentQuestion === questions.length) {
+//       showGameOver();
+//   } else {
+//       showQuestion();
+//   }
+// }
+
+// function sendGame() {
+//   const html = `<h2>Results</h2><p>You got ${score} out of ${questions.length} questions correct.</p><button onclick="letGameBegin()">Play Again</button>`;
+//   document.getElementById("Game").innerHTML = html;
+// }
+// letGameBegin();
+// let timerId = setInterval(updateTimer, 1000);
   
