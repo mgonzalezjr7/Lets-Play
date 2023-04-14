@@ -41,6 +41,129 @@ fetch(url2)
 
 // https://api.rawg.io/api?genre=" + genre + ""
 
+const questions = [
+  {
+    question: "What do you feel like playing on?",
+    options: [
+      "Playstation",
+      "XBOX",
+      "Nintendo",
+      "PC",
+      "Mobile"
+    ],
+  },
+  {
+    question: "Good choice! Now are we going solo or looking to play with your friend(s)",
+    options: [
+      "Solo",
+      "Friends",
+    ],
+  },
+  {
+    question: "What genre are you in the mood for today/tonight?",
+    options: [
+      "Action",
+      "Adventure",
+      "Shooter",
+      "RPG",
+      "Indie"
+    ],
+  }
+];
+
+
+const questionContainer = document.getElementById("question");
+const optionContainer = document.getElementById("options");
+const scoreContainer = document.getElementById("score");
+
+let currentQuestionIndex = 0;
+
+function showQuestion() {
+  const question = questions[currentQuestionIndex];
+  questionContainer.textContent = question.question;
+
+  optionContainer.innerHTML = "";
+  question.options.forEach((option) => {
+    const button = document.createElement("button");
+    button.textContent = option;
+    button.classList.add("option");
+    optionContainer.appendChild(button);
+    button.addEventListener("click", () => {
+      if (option === "Playstation") {
+        alert("Playstation")
+        var console = "Playstation"
+      }
+      else if (option === "XBOX") {
+          alert("XBOX");
+          var console = "XBOX";
+        }
+        else if (option === "Nintendo") {
+          alert("Nintendo")
+          var console = "Nintendo";
+        }
+        else if (option === "PC") {
+          alert("PC")
+          var console = "PC";
+        }
+        else if (option === "Mobile") {
+          alert("Mobile")
+          var console = "Mobile";
+        }
+        else if (option === "Solo") {
+          alert("Solo")
+          var wayToPlay = "Solo!";
+        }
+        else if (option === "Friends") {
+          alert("Friends")
+          var wayToPlay = "with Friends!";
+        }
+        else if (option === "Action") {
+          alert("Action")
+          var genre = "Action!";
+        }
+        else if (option === "Adventure") {
+          alert("Adventure")
+          var genre = "Adventure!";
+        }
+        else if (option === "Shooter") {
+          alert("Shooter")
+          var genre = "Shooters!";
+        }
+        else if (option === "RPG") {
+          alert("RPG")
+          var genre = "RPGs!";
+        }
+        else if (option === "Indie") {
+          alert("Indie")
+          var genre = "Indie!";
+        }
+      currentQuestionIndex++;
+
+      if (currentQuestionIndex === questions.length) {
+        showResults();
+        alert("My favorite way to game is on " + console + " and my favorite way to play is " + wayToPlay + " Also my favorite genre is " + genre)
+      } else {
+        showQuestion();
+      }
+    });
+  });
+}
+
+function showResults() {
+  questionSection.style.display = "none";
+}
+
+startBtn.addEventListener("click", () => {
+  startBtn.style.display = "none";
+  questionSection.style.display = "block";
+  showQuestion();
+});
+
+
+
+
+
+
 
 // const questions = [{
 //   question: "What do you feel like playing on?",
@@ -71,121 +194,121 @@ fetch(url2)
 // },
 // ];
 
-startBtn.addEventListener('click', function() {
-  startBtn.classList.add('hidden');
-  function buildQuiz(){
+// startBtn.addEventListener('click', function() {
+//   startBtn.classList.add('hidden');
+//   function buildQuiz(){
     
-    // variable to store the HTML output
-    const output = [];
+//     // variable to store the HTML output
+//     const output = [];
 
-    // for each question...
-    myQuestions.forEach(
-      (currentQuestion, questionNumber) => {
+//     // for each question...
+//     myQuestions.forEach(
+//       (currentQuestion, questionNumber) => {
 
-        // variable to store the list of possible answers
-        const answers = [];
+//         // variable to store the list of possible answers
+//         const answers = [];
 
-        // and for each available answer...
-        for(letter in currentQuestion.answers){
+//         // and for each available answer...
+//         for(letter in currentQuestion.answers){
 
-          // ...add an HTML radio button
-          answers.push(
-            `<label>
-              <input type="button" name="question${questionNumber}" value="${letter}">
-              ${letter} :
-              ${currentQuestion.answers[letter]}
-            </label>`
-          );
-        }
+//           // ...add an HTML radio button
+//           answers.push(
+//             `<label>
+//               <input type="button" name="question${questionNumber}" value="${letter}">
+//               ${letter} :
+//               ${currentQuestion.answers[letter]}
+//             </label>`
+//           );
+//         }
 
-        // add this question and its answers to the output
-        output.push(
-          `<div class="question"> ${currentQuestion.question} </div>
-          <div class="answers"> ${answers.join('')} </div>`
-        );
-      }
-    );
+//         // add this question and its answers to the output
+//         output.push(
+//           `<div class="question"> ${currentQuestion.question} </div>
+//           <div class="answers"> ${answers.join('')} </div>`
+//         );
+//       }
+//     );
 
-    // finally combine our output list into one string of HTML and put it on the page
-    quizContainer.style.display = 'flex'
-    quizContainer.innerHTML = output.join('');
-  }
+//     // finally combine our output list into one string of HTML and put it on the page
+//     questionSection.style.display = 'flex'
+//     questionSection.innerHTML = output.join('');
+//   }
 
-  function showResults(){
+//   function showResults(){
 
-    // gather answer containers from our quiz
-    const answerContainers = quizContainer.querySelectorAll('.answers');
+//     // gather answer containers from our quiz
+//     const answerContainers = questionSection.querySelectorAll('.answers');
 
-    // keep track of user's answers
-    let numCorrect = 0;
+//     // keep track of user's answers
+//     let numCorrect = 0;
 
-    // for each question...
-    myQuestions.forEach( (currentQuestion, questionNumber) => {
+//     // for each question...
+//     myQuestions.forEach( (currentQuestion, questionNumber) => {
 
-      // find selected answer
-      const answerContainer = answerContainers[questionNumber];
-      const selector = `input[name=question${questionNumber}]:checked`;
-      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+//       // find selected answer
+//       const answerContainer = answerContainers[questionNumber];
+//       const selector = `input[name=question${questionNumber}]:checked`;
+//       const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
-      // if answer is correct
-      if(userAnswer === currentQuestion.correctAnswer){
-        // add to the number of correct answers
-        numCorrect++;
+//       // if answer is correct
+//       if(userAnswer === currentQuestion.correctAnswer){
+//         // add to the number of correct answers
+//         numCorrect++;
 
-        // color the answers green
-        answerContainers[questionNumber].style.color = 'lightgreen';
-      }
-      // if answer is wrong or blank
-      else{
-        // color the answers red
-        answerContainers[questionNumber].style.color = 'red';
-      }
-    });
+//         // color the answers green
+//         answerContainers[questionNumber].style.color = 'lightgreen';
+//       }
+//       // if answer is wrong or blank
+//       else{
+//         // color the answers red
+//         answerContainers[questionNumber].style.color = 'red';
+//       }
+//     });
 
-    // show number of correct answers out of total
-    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
-  }
+//     // show number of correct answers out of total
+//     resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+//   }
 
-  const quizContainer = document.getElementById('question-section');
-  const resultsContainer = document.getElementById('results');
-  const submitButton = document.getElementById('submit');
-  const myQuestions = [
-    {
-      question: "Who invented JavaScript?",
-      answers: {
-        a: "Douglas Crockford",
-        b: "Sheryl Sandberg",
-        c: "Brendan Eich"
-      },
-      correctAnswer: "c"
-    },
-    {
-      question: "Which one of these is a JavaScript package manager?",
-      answers: {
-        a: "Node.js",
-        b: "TypeScript",
-        c: "npm"
-      },
-      correctAnswer: "c"
-    },
-    {
-      question: "Which tool can you use to ensure code quality?",
-      answers: {
-        a: "Angular",
-        b: "jQuery",
-        c: "RequireJS",
-        d: "ESLint"
-      },
-      correctAnswer: "d"
-    }
-  ];
+//   const questionSection = document.getElementById('question-section');
+//   const resultsContainer = document.getElementById('results');
+//   const submitButton = document.getElementById('submit');
+//   const myQuestions = [
+//     {
+//       question: "Who invented JavaScript?",
+//       answers: {
+//         a: "Douglas Crockford",
+//         b: "Sheryl Sandberg",
+//         c: "Brendan Eich"
+//       },
+//       correctAnswer: "c"
+//     },
+//     {
+//       question: "Which one of these is a JavaScript package manager?",
+//       answers: {
+//         a: "Node.js",
+//         b: "TypeScript",
+//         c: "npm"
+//       },
+//       correctAnswer: "c"
+//     },
+//     {
+//       question: "Which tool can you use to ensure code quality?",
+//       answers: {
+//         a: "Angular",
+//         b: "jQuery",
+//         c: "RequireJS",
+//         d: "ESLint"
+//       },
+//       correctAnswer: "d"
+//     }
+//   ];
 
-  // Kick things off
-  buildQuiz();
+//   // Kick things off
+//   buildQuiz();
 
-  // Event listeners
-  // submitButton.addEventListener('click', showResults);
-});
+//   // Event listeners
+//   // submitButton.addEventListener('click', showResults);
+// });
 
 
 
