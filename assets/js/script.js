@@ -8,7 +8,7 @@ var url2 = "https://api.rawg.io/api/genres?key=ac7de14847e84d37be3b60940720db8c&
 var url3 = "https://api.rawg.io/api/platforms/lists/parents?key=ac7de14847e84d37be3b60940720db8c"
 var url4 = "https://api.rawg.io/api/tags?ordering=name&key=ac7de14847e84d37be3b60940720db8c"
 var devUrl = "https://api.rawg.io/api/games/key=ac7de14847e84d37be3b60940720db8c&page=5"
-var test2Url = "https://api.rawg.io/api/games?genres=indie&tags=horror&key=ac7de14847e84d37be3b60940720db8c"
+var test2Url = "https://api.rawg.io/api/games?search=Cyberpunk 2077&key=ac7de14847e84d37be3b60940720db8c"
 
 fetch(test2Url)
   .then(function (response) {
@@ -43,10 +43,6 @@ searchBtn.addEventListener("click", function() {
   questionSection.classList.add("hidden");
   searchSection.style.display='flex'
 });
-
-// console.log("----------------------")
-
-// https://api.rawg.io/api?genre=" + genre + ""
 
 const questions = [
   {
@@ -152,7 +148,6 @@ function showQuestion() {
 
       if (currentQuestionIndex === questions.length) {
         showResults();
-        // alert("My favorite way to game is on " + chosenConsole + " and my favorite way to play is " + chosenWayToPlay + " Also my favorite genre is " + chosenGenre)
       } else {
         showQuestion();
       }
@@ -163,7 +158,7 @@ function showQuestion() {
 function showResults() {
   questionSection.style.display = "none";
   alert("My favorite way to game is on " + chosenConsole + " and my favorite way to play is " + chosenWayToPlay + " Also my favorite genre is " + chosenGenre)
-  var finalUrl = "https://api.rawg.io/api/games?parent_platforms=" + chosenConsole + "&tags=" + chosenWayToPlay + "&genres=" + chosenGenre + "&key=ac7de14847e84d37be3b60940720db8c"
+  var finalUrl = "https://api.rawg.io/api/games?page_size=40&parent_platforms=" + chosenConsole + "&tags=" + chosenWayToPlay + "&genres=" + chosenGenre + "&key=ac7de14847e84d37be3b60940720db8c"
 
   fetch(finalUrl)
   .then(function (response) {
@@ -171,13 +166,40 @@ function showResults() {
   })
   .then(function (data) {
     console.log(data);
-    const gameImageEl = document.getElementById("gameImage");
-    const gameTitleEl = document.getElementById("gameTitle");
-    const cardEl = document.querySelector(".card");
 
-    cardEl.style.display = "flex";
-    gameImageEl.setAttribute("src", data.results[0].background_image);
-    gameTitleEl.textContent = data.results[0].name;
+    const cardDeckEl = document.querySelector(".cardDeck");
+    cardDeckEl.style.display = "flex";
     
+    const randomEl = Math.floor(Math.random() * data.results.length);
+    const randomEl2 = Math.floor(Math.random() * data.results.length);
+    const randomEl3 = Math.floor(Math.random() * data.results.length);
+    const randomEl4 = Math.floor(Math.random() * data.results.length);
+    const randomEl5 = Math.floor(Math.random() * data.results.length);
+
+    document.getElementById("gameImage").setAttribute("src", data?.results?.[randomEl].background_image);
+    document.getElementById("gameImage2").setAttribute("src", data?.results?.[randomEl2].background_image);
+    document.getElementById("gameImage3").setAttribute("src", data?.results?.[randomEl3].background_image);
+    document.getElementById("gameImage4").setAttribute("src", data?.results?.[randomEl4].background_image);
+    document.getElementById("gameImage5").setAttribute("src", data?.results?.[randomEl5].background_image);
+
+    document.getElementById("gameTitle").textContent = data?.results?.[randomEl].name;
+    document.getElementById("gameTitle2").textContent = data?.results?.[randomEl2].name;
+    document.getElementById("gameTitle3").textContent = data?.results?.[randomEl3].name;
+    document.getElementById("gameTitle4").textContent = data?.results?.[randomEl4].name;
+    document.getElementById("gameTitle5").textContent = data?.results?.[randomEl5].name;
+
+    function test(){
+      document.querySelector(".card").addEventListener("click", function(){
+        const h4El = this.querySelector("h4").textContent;
+        
+          localStorage.setItem(h4El, h4El);
+        })
+    }
+
+    document.querySelector(".card").addEventListener("click", test())
+
   });
 }
+
+
+
