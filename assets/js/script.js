@@ -163,7 +163,7 @@ function showQuestion() {
 function showResults() {
   questionSection.style.display = "none";
   alert("My favorite way to game is on " + chosenConsole + " and my favorite way to play is " + chosenWayToPlay + " Also my favorite genre is " + chosenGenre)
-  var finalUrl = "https://api.rawg.io/api/games?parent_platforms=" + chosenConsole + "&tags=" + chosenWayToPlay + "&genres=" + chosenGenre + "&key=ac7de14847e84d37be3b60940720db8c"
+  var finalUrl = "https://api.rawg.io/api/games?page_size=40&parent_platforms=" + chosenConsole + "&tags=" + chosenWayToPlay + "&genres=" + chosenGenre + "&key=ac7de14847e84d37be3b60940720db8c"
 
   fetch(finalUrl)
   .then(function (response) {
@@ -171,13 +171,14 @@ function showResults() {
   })
   .then(function (data) {
     console.log(data);
+    const randomEl = Math.floor(Math.random() * data.results.length)
     const gameImageEl = document.getElementById("gameImage");
     const gameTitleEl = document.getElementById("gameTitle");
     const cardEl = document.querySelector(".card");
 
     cardEl.style.display = "flex";
-    gameImageEl.setAttribute("src", data.results[0].background_image);
-    gameTitleEl.textContent = data.results[0].name;
+    gameImageEl.setAttribute("src", data?.results?.[randomEl].background_image);
+    gameTitleEl.textContent = data?.results?.[randomEl].name;
     
   });
 }
