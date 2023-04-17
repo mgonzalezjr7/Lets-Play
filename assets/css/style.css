@@ -126,17 +126,25 @@ button {
     }
   }
 
+  .cardDeck{
+    display: none;
+    position: absolute;
+    top: 40%;
+    left: 10%;
+  }
+
   .card {
     background-color: #02388b;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     width: 350px;
-    display: none;
+    display: flex;
     flex-direction: column;
-    align-items: center;
+    margin: 20px;
+    /* align-items: center;
     top: 45%;
     left: 45%;
-    position: absolute;
+    position: absolute; */
   }
   
   .card:hover {
@@ -145,5 +153,9 @@ button {
 
   .card h4{
     padding: 5px;
+  }
+
+  .card img{
+    height: 200px;
   }
   

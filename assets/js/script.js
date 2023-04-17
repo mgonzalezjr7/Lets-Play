@@ -172,13 +172,25 @@ function showResults() {
   .then(function (data) {
     console.log(data);
     const randomEl = Math.floor(Math.random() * data.results.length)
-    const gameImageEl = document.getElementById("gameImage");
-    const gameTitleEl = document.getElementById("gameTitle");
-    const cardEl = document.querySelector(".card");
+    const randomEl2 = Math.floor(Math.random() * data.results.length)
+    const randomEl3 = Math.floor(Math.random() * data.results.length)
+    const randomEl4 = Math.floor(Math.random() * data.results.length)
+    const randomEl5 = Math.floor(Math.random() * data.results.length)
 
-    cardEl.style.display = "flex";
-    gameImageEl.setAttribute("src", data?.results?.[randomEl].background_image);
-    gameTitleEl.textContent = data?.results?.[randomEl].name;
-    
+    document.getElementById("gameImage").setAttribute("src", data?.results?.[randomEl].background_image);
+    document.getElementById("gameImage2").setAttribute("src", data?.results?.[randomEl2].background_image);
+    document.getElementById("gameImage3").setAttribute("src", data?.results?.[randomEl3].background_image);
+    document.getElementById("gameImage4").setAttribute("src", data?.results?.[randomEl4].background_image);
+    document.getElementById("gameImage5").setAttribute("src", data?.results?.[randomEl5].background_image);
+
+    document.getElementById("gameTitle").textContent = data?.results?.[randomEl].name;
+    document.getElementById("gameTitle2").textContent = data?.results?.[randomEl2].name;
+    document.getElementById("gameTitle3").textContent = data?.results?.[randomEl3].name;
+    document.getElementById("gameTitle4").textContent = data?.results?.[randomEl4].name;
+    document.getElementById("gameTitle5").textContent = data?.results?.[randomEl5].name;
+
+    const cardDeckEl = document.querySelector(".cardDeck");
+
+    cardDeckEl.style.display = "flex";
   });
 }
