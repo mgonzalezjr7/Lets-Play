@@ -97,51 +97,51 @@ function showQuestion() {
     optionContainer.appendChild(button);
     button.addEventListener("click", () => {
       if (option === "Playstation") {
-        alert("Playstation")
+        //alert("Playstation")
         chosenConsole = 2
       }
       else if (option === "XBOX") {
-          alert("XBOX");
+          //alert("XBOX");
           chosenConsole = 3;
         }
         else if (option === "Nintendo") {
-          alert("Nintendo")
+          //alert("Nintendo")
           chosenConsole = 7;
         }
         else if (option === "PC") {
-          alert("PC")
+          //alert("PC")
           chosenConsole = 1;
         }
         else if (option === "Mobile") {
-          alert("Mobile")
+          //alert("Mobile")
           chosenConsole = "4,8";
         }
         else if (option === "Solo") {
-          alert("Solo")
+          //alert("Solo")
           chosenWayToPlay = 31;
         }
         else if (option === "Friends") {
-          alert("Friends")
+          //alert("Friends")
           chosenWayToPlay = 7;
         }
         else if (option === "Action") {
-          alert("Action")
+          //alert("Action")
           chosenGenre = 4;
         }
         else if (option === "Adventure") {
-          alert("Adventure")
+          //alert("Adventure")
           chosenGenre = 3;
         }
         else if (option === "Shooter") {
-          alert("Shooter")
+          //alert("Shooter")
           chosenGenre = 2;
         }
         else if (option === "RPG") {
-          alert("RPG")
+          //alert("RPG")
           chosenGenre = 5;
         }
         else if (option === "Indie") {
-          alert("Indie")
+          //alert("Indie")
           chosenGenre = 51;
         }
       currentQuestionIndex++;
@@ -157,7 +157,7 @@ function showQuestion() {
 
 function showResults() {
   questionSection.style.display = "none";
-  alert("My favorite way to game is on " + chosenConsole + " and my favorite way to play is " + chosenWayToPlay + " Also my favorite genre is " + chosenGenre)
+  //alert("My favorite way to game is on " + chosenConsole + " and my favorite way to play is " + chosenWayToPlay + " Also my favorite genre is " + chosenGenre)
   var finalUrl = "https://api.rawg.io/api/games?page_size=40&parent_platforms=" + chosenConsole + "&tags=" + chosenWayToPlay + "&genres=" + chosenGenre + "&key=ac7de14847e84d37be3b60940720db8c"
 
   fetch(finalUrl)
@@ -175,24 +175,27 @@ function showResults() {
     const randomEl3 = Math.floor(Math.random() * data.results.length);
     const randomEl4 = Math.floor(Math.random() * data.results.length);
     const randomEl5 = Math.floor(Math.random() * data.results.length);
+    const randomEl6 = Math.floor(Math.random() * data.results.length);
 
     document.getElementById("gameImage").setAttribute("src", data?.results?.[randomEl].background_image);
     document.getElementById("gameImage2").setAttribute("src", data?.results?.[randomEl2].background_image);
     document.getElementById("gameImage3").setAttribute("src", data?.results?.[randomEl3].background_image);
     document.getElementById("gameImage4").setAttribute("src", data?.results?.[randomEl4].background_image);
     document.getElementById("gameImage5").setAttribute("src", data?.results?.[randomEl5].background_image);
+    document.getElementById("gameImage6").setAttribute("src", data?.results?.[randomEl6].background_image);
 
     document.getElementById("gameTitle").textContent = data?.results?.[randomEl].name;
     document.getElementById("gameTitle2").textContent = data?.results?.[randomEl2].name;
     document.getElementById("gameTitle3").textContent = data?.results?.[randomEl3].name;
     document.getElementById("gameTitle4").textContent = data?.results?.[randomEl4].name;
     document.getElementById("gameTitle5").textContent = data?.results?.[randomEl5].name;
+    document.getElementById("gameTitle6").textContent = data?.results?.[randomEl6].name;
 
     function test(){
       document.querySelector(".card").addEventListener("click", function(){
         const h4El = this.querySelector("h4").textContent;
         
-          localStorage.setItem(h4El, h4El);
+          localStorage.setItem((h4El), h4El);
         })
     }
 
