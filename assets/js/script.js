@@ -3,19 +3,20 @@ var gamesUrl = "https://api.rawg.io/api/games?key=ac7de14847e84d37be3b60940720db
 var testUrl = "https://api.rawg.io/api/games?key=ac7de14847e84d37be3b60940720db8c&parent_platforms=" + choice1 + "&genres=" + choice2
 var choice1 = 187 //Playstation 5 (playstation, xbox, nintendo)
 var choice2 = "2, 3, 4" //action or shooter
-var testUrl = "https://api.rawg.io/api/games?key=ac7de14847e84d37be3b60940720db8c&platforms="
+var testUrl = ("https://api.rawg.io/api/games?metacritic=80,100&key=ac7de14847e84d37be3b60940720db8c", " https://api.rawg.io/api/games?parent_platforms=2&ordering=-metacritic&key=ac7de14847e84d37be3b60940720db8c")
 var url2 = "https://api.rawg.io/api/genres?key=ac7de14847e84d37be3b60940720db8c&results=30"
 var url3 = "https://api.rawg.io/api/platforms/lists/parents?key=ac7de14847e84d37be3b60940720db8c"
-var url4 = "https://api.rawg.io/api/tags?page_size=50&key=ac7de14847e84d37be3b60940720db8c"
-var devUrl = "https://api.rawg.io/api/developers?page_size=50&key=ac7de14847e84d37be3b60940720db8c&page=5"
+var url4 = "https://api.rawg.io/api/tags?ordering=name&key=ac7de14847e84d37be3b60940720db8c"
+var devUrl = "https://api.rawg.io/api/games/key=ac7de14847e84d37be3b60940720db8c&page=5"
+var test2Url = "https://api.rawg.io/api/games?genres=indie&tags=horror&key=ac7de14847e84d37be3b60940720db8c"
 
-// fetch(url2)
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     console.log(data);
-//   });
+fetch(test2Url)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+  });
 
 
 // BUTTONS
@@ -101,57 +102,57 @@ function showQuestion() {
     button.addEventListener("click", () => {
       if (option === "Playstation") {
         alert("Playstation")
-        chosenConsole = "Playstation"
+        chosenConsole = 2
       }
       else if (option === "XBOX") {
           alert("XBOX");
-          chosenConsole = "XBOX";
+          chosenConsole = 3;
         }
         else if (option === "Nintendo") {
           alert("Nintendo")
-          chosenConsole = "Nintendo";
+          chosenConsole = 7;
         }
         else if (option === "PC") {
           alert("PC")
-          chosenConsole = "PC";
+          chosenConsole = 1;
         }
         else if (option === "Mobile") {
           alert("Mobile")
-          chosenConsole = "Mobile";
+          chosenConsole = "4,8";
         }
         else if (option === "Solo") {
           alert("Solo")
-          chosenWayToPlay = "Solo!";
+          chosenWayToPlay = 31;
         }
         else if (option === "Friends") {
           alert("Friends")
-          chosenWayToPlay = "with Friends!";
+          chosenWayToPlay = 7;
         }
         else if (option === "Action") {
           alert("Action")
-          chosenGenre = "Action!";
+          chosenGenre = 4;
         }
         else if (option === "Adventure") {
           alert("Adventure")
-          chosenGenre = "Adventure!";
+          chosenGenre = 3;
         }
         else if (option === "Shooter") {
           alert("Shooter")
-          chosenGenre = "Shooters!";
+          chosenGenre = 2;
         }
         else if (option === "RPG") {
           alert("RPG")
-          chosenGenre = "RPGs!";
+          chosenGenre = 5;
         }
         else if (option === "Indie") {
           alert("Indie")
-          chosenGenre = "Indie!";
+          chosenGenre = 51;
         }
       currentQuestionIndex++;
 
       if (currentQuestionIndex === questions.length) {
         showResults();
-        alert("My favorite way to game is on " + chosenConsole + " and my favorite way to play is " + chosenWayToPlay + " Also my favorite genre is " + chosenGenre)
+        // alert("My favorite way to game is on " + chosenConsole + " and my favorite way to play is " + chosenWayToPlay + " Also my favorite genre is " + chosenGenre)
       } else {
         showQuestion();
       }
@@ -161,4 +162,22 @@ function showQuestion() {
 
 function showResults() {
   questionSection.style.display = "none";
+  alert("My favorite way to game is on " + chosenConsole + " and my favorite way to play is " + chosenWayToPlay + " Also my favorite genre is " + chosenGenre)
+  var finalUrl = "https://api.rawg.io/api/games?parent_platforms=" + chosenConsole + "&tags=" + chosenWayToPlay + "&genres=" + chosenGenre + "&key=ac7de14847e84d37be3b60940720db8c"
+
+  fetch(finalUrl)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+    const gameImageEl = document.getElementById("gameImage");
+    const gameTitleEl = document.getElementById("gameTitle");
+    const cardEl = document.querySelector(".card");
+
+    cardEl.style.display = "flex";
+    gameImageEl.setAttribute("src", data.results[0].background_image);
+    gameTitleEl.textContent = data.results[0].name;
+    
+  });
 }
