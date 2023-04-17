@@ -141,10 +141,6 @@ button {
     display: flex;
     flex-direction: column;
     margin: 20px;
-    /* align-items: center;
-    top: 45%;
-    left: 45%;
-    position: absolute; */
   }
   
   .card:hover {
@@ -153,6 +149,7 @@ button {
 
   .card h4{
     padding: 5px;
+    font-weight: bold;
   }
 
   .card img{
