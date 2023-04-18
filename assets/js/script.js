@@ -18,11 +18,13 @@ var test2Url = "https://api.rawg.io/api/games?search=Cyberpunk 2077&key=ac7de148
 //     console.log(data);
 //   });
 
-
 // BUTTONS
 const startBtn = document.getElementById("start-bttn");
 const searchBtn = document.getElementById("search-bttn");
-const savedBtn = document.getElementById("saved-bttn")
+const savedBtn = document.getElementById("saved-bttn");
+const gameTypeEl = document.getElementById("gameType");
+const videoGameBtn = document.getElementById("videoGame");
+const boardGameBtn = document.getElementById("boardGame");
 const questionSection = document.getElementById("question-section");
 const searchSection = document.getElementById("search-section");
 const searchForm = document.getElementById("search-form");
@@ -30,6 +32,11 @@ const savedDeck = document.querySelector(".savedCardDeck")
 
 startBtn.addEventListener("click", () => {
   startBtn.style.display = "none";
+  gameTypeEl.style.display = "flex";
+});
+
+videoGameBtn.addEventListener("click", () => {
+  gameTypeEl.style.display = "none";
   questionSection.style.display = "flex";
   showQuestion();
 });
@@ -44,6 +51,7 @@ searchBtn.addEventListener("click", function () {
 savedBtn.addEventListener("click", function () {
   startBtn.classList.add("hidden");
   document.querySelector(".cardDeck").style.display = "none";
+  questionSection.style.display = "none";
   showSaved();
   savedDeck.style.display = "flex";
 });
