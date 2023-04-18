@@ -10,40 +10,55 @@ var url4 = "https://api.rawg.io/api/tags?ordering=name&key=ac7de14847e84d37be3b6
 var devUrl = "https://api.rawg.io/api/games/key=ac7de14847e84d37be3b60940720db8c&page=5"
 var test2Url = "https://api.rawg.io/api/games?search=Cyberpunk 2077&key=ac7de14847e84d37be3b60940720db8c"
 
-fetch(test2Url)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-  });
-
+// fetch(test2Url)
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     console.log(data);
+//   });
 
 // BUTTONS
-const startBtn = document.getElementById('start-bttn');
+const startBtn = document.getElementById("start-bttn");
 const searchBtn = document.getElementById("search-bttn");
-const questionSection = document.getElementById('question-section');
+const savedBtn = document.getElementById("saved-bttn");
+const gameTypeEl = document.getElementById("gameType");
+const videoGameBtn = document.getElementById("videoGame");
+const boardGameBtn = document.getElementById("boardGame");
+const questionSection = document.getElementById("question-section");
 const searchSection = document.getElementById("search-section");
 const searchForm = document.getElementById("search-form");
-  
-// startBtn.addEventListener('click', () => {
-//   startBtn.classList.add('hidden');
-//   questionSection.classList.remove('hidden');
-//   questionSection.style.display='flex';
-// });
+const savedDeck = document.querySelector(".savedCardDeck")
 
 startBtn.addEventListener("click", () => {
   startBtn.style.display = "none";
+  gameTypeEl.style.display = "flex";
+});
+
+videoGameBtn.addEventListener("click", () => {
+  gameTypeEl.style.display = "none";
   questionSection.style.display = "flex";
   showQuestion();
 });
 
-searchBtn.addEventListener("click", function() {
+searchBtn.addEventListener("click", function () {
   startBtn.classList.add("hidden");
   questionSection.classList.add("hidden");
-  searchSection.style.display='flex'
+  searchSection.style.display = 'flex'
+
 });
 
+savedBtn.addEventListener("click", function () {
+  startBtn.classList.add("hidden");
+  document.querySelector(".cardDeck").style.display = "none";
+  questionSection.style.display = "none";
+  showSaved();
+  savedDeck.style.display = "flex";
+});
+
+
+
+// QUIZ
 const questions = [
   {
     question: "What do you feel like playing on?",
@@ -101,49 +116,49 @@ function showQuestion() {
         chosenConsole = 2
       }
       else if (option === "XBOX") {
-          //alert("XBOX");
-          chosenConsole = 3;
-        }
-        else if (option === "Nintendo") {
-          //alert("Nintendo")
-          chosenConsole = 7;
-        }
-        else if (option === "PC") {
-          //alert("PC")
-          chosenConsole = 1;
-        }
-        else if (option === "Mobile") {
-          //alert("Mobile")
-          chosenConsole = "4,8";
-        }
-        else if (option === "Solo") {
-          //alert("Solo")
-          chosenWayToPlay = 31;
-        }
-        else if (option === "Friends") {
-          //alert("Friends")
-          chosenWayToPlay = 7;
-        }
-        else if (option === "Action") {
-          //alert("Action")
-          chosenGenre = 4;
-        }
-        else if (option === "Adventure") {
-          //alert("Adventure")
-          chosenGenre = 3;
-        }
-        else if (option === "Shooter") {
-          //alert("Shooter")
-          chosenGenre = 2;
-        }
-        else if (option === "RPG") {
-          //alert("RPG")
-          chosenGenre = 5;
-        }
-        else if (option === "Indie") {
-          //alert("Indie")
-          chosenGenre = 51;
-        }
+        //alert("XBOX");
+        chosenConsole = 3;
+      }
+      else if (option === "Nintendo") {
+        //alert("Nintendo")
+        chosenConsole = 7;
+      }
+      else if (option === "PC") {
+        //alert("PC")
+        chosenConsole = 1;
+      }
+      else if (option === "Mobile") {
+        //alert("Mobile")
+        chosenConsole = "4,8";
+      }
+      else if (option === "Solo") {
+        //alert("Solo")
+        chosenWayToPlay = 31;
+      }
+      else if (option === "Friends") {
+        //alert("Friends")
+        chosenWayToPlay = 7;
+      }
+      else if (option === "Action") {
+        //alert("Action")
+        chosenGenre = 4;
+      }
+      else if (option === "Adventure") {
+        //alert("Adventure")
+        chosenGenre = 3;
+      }
+      else if (option === "Shooter") {
+        //alert("Shooter")
+        chosenGenre = 2;
+      }
+      else if (option === "RPG") {
+        //alert("RPG")
+        chosenGenre = 5;
+      }
+      else if (option === "Indie") {
+        //alert("Indie")
+        chosenGenre = 51;
+      }
       currentQuestionIndex++;
 
       if (currentQuestionIndex === questions.length) {
@@ -161,48 +176,65 @@ function showResults() {
   var finalUrl = "https://api.rawg.io/api/games?page_size=40&parent_platforms=" + chosenConsole + "&tags=" + chosenWayToPlay + "&genres=" + chosenGenre + "&key=ac7de14847e84d37be3b60940720db8c"
 
   fetch(finalUrl)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
 
-    const cardDeckEl = document.querySelector(".cardDeck");
-    cardDeckEl.style.display = "flex";
-    
-    const randomEl = Math.floor(Math.random() * data.results.length);
-    const randomEl2 = Math.floor(Math.random() * data.results.length);
-    const randomEl3 = Math.floor(Math.random() * data.results.length);
-    const randomEl4 = Math.floor(Math.random() * data.results.length);
-    const randomEl5 = Math.floor(Math.random() * data.results.length);
-    const randomEl6 = Math.floor(Math.random() * data.results.length);
+      const cardDeckEl = document.querySelector(".cardDeck");
+      cardDeckEl.style.display = "flex";
 
-    document.getElementById("gameImage").setAttribute("src", data?.results?.[randomEl].background_image);
-    document.getElementById("gameImage2").setAttribute("src", data?.results?.[randomEl2].background_image);
-    document.getElementById("gameImage3").setAttribute("src", data?.results?.[randomEl3].background_image);
-    document.getElementById("gameImage4").setAttribute("src", data?.results?.[randomEl4].background_image);
-    document.getElementById("gameImage5").setAttribute("src", data?.results?.[randomEl5].background_image);
-    document.getElementById("gameImage6").setAttribute("src", data?.results?.[randomEl6].background_image);
-
-    document.getElementById("gameTitle").textContent = data?.results?.[randomEl].name;
-    document.getElementById("gameTitle2").textContent = data?.results?.[randomEl2].name;
-    document.getElementById("gameTitle3").textContent = data?.results?.[randomEl3].name;
-    document.getElementById("gameTitle4").textContent = data?.results?.[randomEl4].name;
-    document.getElementById("gameTitle5").textContent = data?.results?.[randomEl5].name;
-    document.getElementById("gameTitle6").textContent = data?.results?.[randomEl6].name;
-
-    function test(){
-      document.querySelector(".card").addEventListener("click", function(){
-        const h4El = this.querySelector("h4").textContent;
-        
-          localStorage.setItem((h4El), h4El);
-        })
-    }
-
-    document.querySelector(".card").addEventListener("click", test())
-
-  });
+      for (let i = 1; i <= 6; i++) {
+        const randomEl = Math.floor(Math.random() * data.results.length);
+        const gameImageEl = document.getElementById(`gameImage${i}`);
+        const gameTitleEl = document.getElementById(`gameTitle${i}`);
+        const releasedEl = document.querySelector(`.released${i}`);
+        const esrbEl = document.querySelector(`.esrb${i}`)
+        const metacriticEl = document.querySelector(`.metacritic${i}`)
+        if (gameImageEl && gameTitleEl) {
+          gameImageEl.setAttribute("src", data?.results?.[randomEl]?.background_image);
+          gameTitleEl.textContent = data?.results?.[randomEl]?.name;
+          releasedEl.textContent = "Released: " + data?.results?.[randomEl]?.released;
+          esrbEl.textContent = "ESRB: " + data?.results?.[randomEl]?.esrb_rating?.name;
+          metacriticEl.textContent = "Metascore: " + data?.results?.[randomEl]?.metacritic;
+        }
+      }
+    });
 }
 
+const cardEl = document.querySelectorAll(".card");
+for (let i = 0; i < cardEl.length; i++) {
+  cardEl[i].addEventListener("click", function () {
+    const h4El = this.querySelector("h4").textContent;
+    localStorage.setItem(h4El, h4El);
+  });
+};
 
+function showSaved() {
+  let savedCards = document.querySelector(".savedCardDeck");
 
+  if (savedCards.children.length === 0) {
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
+    let savedGame = localStorage.getItem(key);
+    let savedUrl = "https://api.rawg.io/api/games?search=" + savedGame + "&key=ac7de14847e84d37be3b60940720db8c"
+
+    fetch(savedUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data)
+        let savedCard = document.createElement("div");
+        savedCard.classList.add("savedCard");
+        savedCard.innerHTML = `<img src="${data.results[0].background_image}" id="savedImage${i}">
+        <h4 id="savedTitle${i}">${data.results[0].name}</h4>
+        <p class="p1 released">Released: ${data.results[0].released}</p> 
+        <p class="p2 esrb">ESRB: ${data.results[0].esrb_rating?.name}</p> 
+        <p class="p3 metacritic">Metascore: ${data.results[0].metacritic}</p>`
+
+        savedCards.appendChild(savedCard);
+      });
+  }};
+};

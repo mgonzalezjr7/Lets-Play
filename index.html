@@ -1,116 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lets Play!</title>
-<!-- STYLE SHEETS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-<!-- TAILWIND CONFIG -->
-    <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                clifford: '#da373d',
-                green: '#51B848',
-              }
-            }
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lets Play!</title>
+  <!-- STYLE SHEETS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- TAILWIND CONFIG -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+            green: '#51B848',
           }
         }
-      </script>
+      }
+    }
+  </script>
 </head>
 <!-- TEXT BODY -->
+
 <body class="bg-gray-800">
-    <nav class="flex flex-row justify-between items-center py-5 px-4 bg-black bg-opacity-60">
-        <!-- LOGO -->
-        <img src="./assets/images/Lets Play Final.png" alt="Lets Play Logo" class="mx-auto centered-image" style="width: 350px;">
-        <div class="flex justify-end">
-            <!-- SAVED BTTN -->
-            <button class="px-2 py-1 rounded-lg mx-2" id="saved-bttn">
-                <img src="./assets/images/saved.png" alt="Saved">
-            </button>
-            <!-- SEARCH BTTN -->
-            <button class="px-2 py-1 rounded-lg mx-2" id="search-bttn">
-                <img src="./assets/images/Search.png" alt="Search">
-            </button>
-        </div>
-    </nav>
-    <!-- START BTTN -->
-    <div class="h-screen flex justify-center items-center">
-        <button class="px-8 py-4 rounded-full shadow-lg shadow-xl" id="start-bttn">
-            <img src="./assets/images/Start.png" alt="Start">
-        </button>        
+  <nav class="flex flex-row justify-between items-center py-5 px-4 bg-black bg-opacity-60">
+    <!-- LOGO -->
+    <img src="./assets/images/Lets Play Final.png" alt="Lets Play Logo" class="mx-auto centered-image"
+      style="width: 350px;">
+    <div class="flex justify-end">
+      <!-- SAVED BTTN -->
+      <button class="px-2 py-1 rounded-lg mx-2" id="saved-bttn">
+        <img src="./assets/images/saved.png" alt="Saved">
+      </button>
+      <!-- SEARCH BTTN -->
+      <button class="px-2 py-1 rounded-lg mx-2" id="search-bttn">
+        <img src="./assets/images/Search.png" alt="Search">
+      </button>
     </div>
-    <!-- QUESTION AND BUTTONS -->
-    <div id="question-section" class="hidden bg-gray-700 bg-opacity-90 absolute inset-0 flex justify-center items-center">
-        <div class="flex flex-col items-center justify-center w-5/6 h-5/6 p-8">
-          <h2 id="question" class="text-2xl font-bold text-white mb-4">Question Title</h2>
-          <div id="options" class="grid grid-cols-2 gap-4">
-            <button class="w-full py-4 px-6 bg-green hover:bg-green text-white font-bold rounded-lg shadow-lg no-animation">Button 1</button>
-            <button class="w-full py-4 px-6 bg-green hover:bg-green text-white font-bold rounded-lg shadow-lg no-animation">Button 2</button>
-            <button class="w-full py-4 px-6 bg-green hover:bg-green text-white font-bold rounded-lg shadow-lg no-animation">Button 3</button>
-            <button class="w-full py-4 px-6 bg-green hover:bg-green text-white font-bold rounded-lg shadow-lg no-animation">Button 4</button>
-          </div>
+  </nav>
+  <!-- START BTTN -->
+  <div id="start-bttn" class="h-screen flex justify-center items-center">
+    <button class="px-8 py-4 rounded-full shadow-lg shadow-xl">
+      <img src="./assets/images/Start.png" alt="Start">
+    </button>
+  </div>
+  <!-- BOARDGAME OR GAME QUIZ -->
+  <div id="gameType" class="h-screen flex justify-center items-center flex-col">
+    <h2 class="text-2xl font-bold text-white mb-4">Are you in the mood for a Video Game or a Board Game?</h2>
+    <div class="flex flex-row">
+    <button class="px-8 py-4 rounded-full shadow-lg shadow-xl" id="vg-bttn">
+      <img src="./assets/images/Start.png" alt="Start" id="videoGame">
+      Video Game
+    </button>
+    <button class="px-8 py-4 rounded-full shadow-lg shadow-xl" id="bg-bttn">
+      <img src="./assets/images/Start.png" alt="Start" id="boardGame">
+      Board Game
+    </button>
+  </div>
+  </div>
+  <!-- <div id="question-section" class="hidden bg-gray-700 bg-opacity-90 absolute inset-0 flex justify-center items-center">
+      <div class="flex flex-col items-center justify-center w-5/6 h-5/6 p-8">
+        <h2 id="question" class="text-2xl font-bold text-white mb-4">Question Title</h2>
+        <div id="options" class="w-full py-4 px-6 bg-green hover:bg-green text-white font-bold rounded-lg shadow-lg no-animation grid grid-cols-2 gap-4">
         </div>
+      </div>
+  </div> -->
+  <!-- GAME QUIZ -->
+  <div id="question-section" class="hidden bg-gray-700 bg-opacity-90 absolute inset-0 flex justify-center items-center">
+    <div class="flex flex-col items-center justify-center w-5/6 h-5/6 p-8">
+      <h2 id="question" class="text-2xl font-bold text-white mb-4">Question Title</h2>
+      <div id="options"
+        class="py-4 px-4 bg-green text-white font-bold rounded-lg shadow-lg no-animation grid grid-cols-2 gap-8">
+      </div>
     </div>
-    <!-- CARD DECK -->
-    <div class="cardDeck">
+  </div>
+  <!-- BOARDGAME QUIZ -->
+  <!-- <div id="question-section" class="hidden bg-gray-700 bg-opacity-90 absolute inset-0 flex justify-center items-center">
+      <div class="flex flex-col items-center justify-center w-5/6 h-5/6 p-8">
+        <h2 id="question" class="text-2xl font-bold text-white mb-4">Question Title</h2>
+        <div id="options" class="w-full py-4 px-6 bg-green hover:bg-green text-white font-bold rounded-lg shadow-lg no-animation grid grid-cols-2 gap-4">
+        </div>
+      </div>
+  </div> -->
+  <!-- CARD DECK -->
+  <div class="cardDeck">
     <div class="card">
-      <img id="gameImage">
-        <h4 id="gameTitle" class="butt"></h4> 
-        <p></p> 
+      <img id="gameImage1">
+      <h4 id="gameTitle1" class="butt"></h4>
+      <p class="p1 released1"></p>
+      <p class="p2 esrb1"></p>
+      <p class="p3 metacritic1"></p>
     </div>
     <div class="card">
       <img id="gameImage2">
-        <h4 id="gameTitle2" class="butt"></h4> 
-        <p></p> 
+      <h4 id="gameTitle2" class="butt"></h4>
+      <p class="p1 released2"></p>
+      <p class="p2 esrb2"></p>
+      <p class="p3 metacritic2"></p>
     </div>
     <div class="card">
       <img id="gameImage3">
-        <h4 id="gameTitle3" class="butt"></h4> 
-        <p></p>
+      <h4 id="gameTitle3" class="butt"></h4>
+      <p class="p1 released3"></p>
+      <p class="p2 esrb3"></p>
+      <p class="p3 metacritic3"></p>
     </div>
     <div class="card">
       <img id="gameImage4">
-        <h4 id="gameTitle4" class="butt"></h4> 
-        <p></p> 
+      <h4 id="gameTitle4" class="butt"></h4>
+      <p class="p1 released4"></p>
+      <p class="p2 esrb4"></p>
+      <p class="p3 metacritic4"></p>
     </div>
     <div class="card">
       <img id="gameImage5">
-        <h4 id="gameTitle5" class="butt"></h4> 
-        <p></p> 
+      <h4 id="gameTitle5" class="butt"></h4>
+      <p class="p1 released5"></p>
+      <p class="p2 esrb5"></p>
+      <p class="p3 metacritic5"></p>
     </div>
     <div class="card">
       <img id="gameImage6">
-        <h4 id="gameTitle6" class="butt"></h4> 
-        <p></p> 
-    </div>
+      <h4 id="gameTitle6" class="butt"></h4>
+      <p class="p1 released6"></p>
+      <p class="p2 esrb6"></p>
+      <p class="p3 metacritic6"></p>
     </div>
   </div>
-    <!-- SEARCH BAR -->
-    <section id="search-section" class="hidden flex justify-center items-center">
-        <form class="flex justify-center items-center">
-          <input type="text" placeholder="Search">
-          <button type="submit" class="px-2 py-1 rounded-lg mx-2 no-animation">
-            <img src="./assets/images/Search.png" alt="Search">
-          </button>
-        </form>
-    </section>
-
-    <!-- BACKGROUND -->
-    <div class="background">
+  </div>
+  <!-- SAVED GAMES -->
+  <div class="savedCardDeck"></div>
+  <!-- SEARCH BAR -->
+  <section id="search-section" class="hidden flex justify-center items-center">
+    <form class="flex justify-center items-center">
+      <input type="text" placeholder="Search">
+      <button type="submit" class="px-2 py-1 rounded-lg mx-2 no-animation">
+        <img src="./assets/images/Search.png" alt="Search">
+      </button>
+    </form>
+  </section>
+  <!-- BACKGROUND -->
+  <div class="background">
     <img src="./assets/images/gaming(960x540).jpg" alt="Girl in gaming chair gaming">
-    </div>
-    <!-- COPY RIGHTS -->
-    <footer class="fixed bottom-0 w-full text-center">
-        <p class="inline-block text-white px-4 py-2 text-sm">
-            © All rights reserved 2023-2024 Buttcheeks.Co
-        </p>
-    </footer>
+  </div>
+  <!-- COPY RIGHTS -->
+  <footer class="relative bottom-0 w-full text-center">
+    <p class="inline-block text-white px-4 py-2 text-sm">
+      © All rights reserved 2023-2024 Buttcheeks.Co
+    </p>
+  </footer>
 </body>
-    <!-- SCRIPT -->
-    <script src="assets/js/script.js"></script>
+<!-- SCRIPT -->
+<script src="assets/js/script.js"></script>
+
 </html>
