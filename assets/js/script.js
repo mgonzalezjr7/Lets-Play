@@ -181,9 +181,15 @@ function showResults() {
         const randomEl = Math.floor(Math.random() * data.results.length);
         const gameImageEl = document.getElementById(`gameImage${i}`);
         const gameTitleEl = document.getElementById(`gameTitle${i}`);
+        const releasedEl = document.querySelector(`.released${i}`);
+        const esrbEl = document.querySelector(`.esrb${i}`)
+        const metacriticEl = document.querySelector(`.metacritic${i}`)
         if (gameImageEl && gameTitleEl) {
           gameImageEl.setAttribute("src", data?.results?.[randomEl]?.background_image);
           gameTitleEl.textContent = data?.results?.[randomEl]?.name;
+          releasedEl.textContent = "Released: " + data?.results?.[randomEl]?.released;
+          esrbEl.textContent = "ESRB: " + data?.results?.[randomEl]?.esrb_rating.name;
+          metacriticEl.textContent = "Metascore: " + data?.results?.[randomEl]?.metacritic;
         }
       }
     });

@@ -227,23 +227,23 @@ nav {
   position: absolute;
   top: 100%;
   left: 0;
-  width: 100%;
+  background-color: #51B848;
   margin: 0;
   transition: top 0.3s ease-out;
   
 }
 
-.card:hover .released {
+.card:hover .p1 {
   display: flex;
   top: 25%;
 }
 
-.card:hover .esrb {
+.card:hover .p2 {
   display: flex;
   top: 50%;
 }
 
-.card:hover .metacritic {
+.card:hover .p3 {
   display: flex;
   top: 75%;
 }
