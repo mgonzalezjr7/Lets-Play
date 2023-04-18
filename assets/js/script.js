@@ -26,12 +26,6 @@ const questionSection = document.getElementById('question-section');
 const searchSection = document.getElementById("search-section");
 const searchForm = document.getElementById("search-form");
   
-// startBtn.addEventListener('click', () => {
-//   startBtn.classList.add('hidden');
-//   questionSection.classList.remove('hidden');
-//   questionSection.style.display='flex';
-// });
-
 startBtn.addEventListener("click", () => {
   startBtn.style.display = "none";
   questionSection.style.display = "flex";
@@ -44,6 +38,7 @@ searchBtn.addEventListener("click", function() {
   searchSection.style.display='flex'
 });
 
+// QUIZ
 const questions = [
   {
     question: "What do you feel like playing on?",
