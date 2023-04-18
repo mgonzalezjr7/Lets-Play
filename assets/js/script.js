@@ -188,7 +188,7 @@ function showResults() {
           gameImageEl.setAttribute("src", data?.results?.[randomEl]?.background_image);
           gameTitleEl.textContent = data?.results?.[randomEl]?.name;
           releasedEl.textContent = "Released: " + data?.results?.[randomEl]?.released;
-          esrbEl.textContent = "ESRB: " + data?.results?.[randomEl]?.esrb_rating.name;
+          esrbEl.textContent = "ESRB: " + data?.results?.[randomEl]?.esrb_rating?.name;
           metacriticEl.textContent = "Metascore: " + data?.results?.[randomEl]?.metacritic;
         }
       }
@@ -219,7 +219,8 @@ function showSaved() {
       .then(function (data) {
         let savedCard = document.createElement("div");
         savedCard.classList.add("savedCard");
-        savedCard.innerHTML = "<img src='" + data.results[0].background_image + "' id='savedImage" + i + "'>" + "<h4 id='savedTitle" + i + "' class='butt'>" + data.results[0].name + "</h4>"
+        savedCard.innerHTML = `<img src="${data.results[0].background_image}" id="savedImage${i}">
+        <h4 id="savedTitle${i}" class="butt">${data.results[0].name}</h4>`
 
         savedCards.appendChild(savedCard);
       });
