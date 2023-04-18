@@ -1,16 +1,8 @@
 var requestUrl = "https://api.boardgameatlas.com/api/search?order_by=rank&ascending=false&client_id=w6w6fWAiC1"
-var gamesUrl = "https://api.rawg.io/api/games?key=ac7de14847e84d37be3b60940720db8c&dates=2019-09-01,2019-09-30&platforms=1"
-var testUrl = "https://api.rawg.io/api/games?key=ac7de14847e84d37be3b60940720db8c&parent_platforms=" + choice1 + "&genres=" + choice2
-var choice1 = 187 //Playstation 5 (playstation, xbox, nintendo)
-var choice2 = "2, 3, 4" //action or shooter
-var testUrl = ("https://api.rawg.io/api/games?metacritic=80,100&key=ac7de14847e84d37be3b60940720db8c", " https://api.rawg.io/api/games?parent_platforms=2&ordering=-metacritic&key=ac7de14847e84d37be3b60940720db8c")
-var url2 = "https://api.rawg.io/api/genres?key=ac7de14847e84d37be3b60940720db8c&results=30"
-var url3 = "https://api.rawg.io/api/platforms/lists/parents?key=ac7de14847e84d37be3b60940720db8c"
-var url4 = "https://api.rawg.io/api/tags?ordering=name&key=ac7de14847e84d37be3b60940720db8c"
-var devUrl = "https://api.rawg.io/api/games/key=ac7de14847e84d37be3b60940720db8c&page=5"
-var test2Url = "https://api.rawg.io/api/games?search=Cyberpunk 2077&key=ac7de14847e84d37be3b60940720db8c"
-
-fetch(testUrl)
+var test3Url = "https://api.boardgameatlas.com/api/search?max_players=2&client_id=w6w6fWAiC1"
+var test4Url = "https://api.boardgameatlas.com/api/search?max_players=1&pretty=true&client_id=w6w6fWAiC1"
+var test5Url = "https://api.boardgameatlas.com/api/game/categories?pretty=true&client_id=w6w6fWAiC1"
+fetch(requestUrl)
   .then(function (response) {
     return response.json();
   })
@@ -46,32 +38,22 @@ searchBtn.addEventListener("click", function() {
 
 const questions = [
   {
-    question: "What do you feel like playing on?",
-    options: [
-      "Playstation",
-      "XBOX",
-      "Nintendo",
-      "PC",
-      "Mobile"
-    ],
-  },
-  {
-    question: "Good choice! Now are we going solo or looking to play with your friend(s)",
+    question: "So are we going solo or playing with a group of friends?",
     options: [
       "Solo",
       "Friends",
     ],
   },
   {
-    question: "What genre are you in the mood for today/tonight?",
+    question: "Best way to play in my opinion, what are we in the mood for?",
     options: [
-      "Action",
-      "Adventure",
-      "Shooter",
-      "RPG",
-      "Indie"
+      "Card Game",
+      "Fantasy",
+      "Economic",
+      "Sci-Fi",
+      "City Building"
     ],
-  }
+  },
 ];
 
 
@@ -79,8 +61,7 @@ const questionContainer = document.getElementById("question");
 const optionContainer = document.getElementById("options");
 const scoreContainer = document.getElementById("score");
 
-let chosenConsole;
-let chosenWayToPlay;
+let playerCount;
 let chosenGenre;
 
 let currentQuestionIndex = 0;
@@ -96,53 +77,29 @@ function showQuestion() {
     button.classList.add("option");
     optionContainer.appendChild(button);
     button.addEventListener("click", () => {
-      if (option === "Playstation") {
-        //alert("Playstation")
-        chosenConsole = 2
+      if (option === "Solo") {
+        //alert("Solo")
+        playerCount = "max_players=1";
       }
-      else if (option === "XBOX") {
-          //alert("XBOX");
-          chosenConsole = 3;
+      else if (option === "Friends") {
+          //alert("Friends");
+          playerCount = "min_players=2";
         }
-        else if (option === "Nintendo") {
-          //alert("Nintendo")
-          chosenConsole = 7;
+        else if (option === "Card Game") {
+          //alert("Card Game")
+          chosenGenre = [{id: "eX8uuNlQkQ"}];
         }
-        else if (option === "PC") {
-          //alert("PC")
-          chosenConsole = 1;
+        else if (option === "Fantasy") {
+          //alert("Fantasy")
+          chosenGenre = [{id: "ZTneo8TaIO"}];
         }
-        else if (option === "Mobile") {
-          //alert("Mobile")
-          chosenConsole = "4,8";
+        else if (option === "Econimic") {
+          //alert("Economic")
+          chosenGenre = [{id: "eX8uuNlQkQ"}];
         }
-        else if (option === "Solo") {
-          //alert("Solo")
-          chosenWayToPlay = 31;
-        }
-        else if (option === "Friends") {
-          //alert("Friends")
-          chosenWayToPlay = 7;
-        }
-        else if (option === "Action") {
-          //alert("Action")
-          chosenGenre = 4;
-        }
-        else if (option === "Adventure") {
-          //alert("Adventure")
-          chosenGenre = 3;
-        }
-        else if (option === "Shooter") {
-          //alert("Shooter")
-          chosenGenre = 2;
-        }
-        else if (option === "RPG") {
-          //alert("RPG")
-          chosenGenre = 5;
-        }
-        else if (option === "Indie") {
-          //alert("Indie")
-          chosenGenre = 51;
+        else if (option === "Sci-Fi") {
+          //alert("Sci-Fi")
+          chosenGenre = [{id: "eX8uuNlQkQ"}];
         }
       currentQuestionIndex++;
 
@@ -158,7 +115,7 @@ function showQuestion() {
 function showResults() {
   questionSection.style.display = "none";
   //alert("My favorite way to game is on " + chosenConsole + " and my favorite way to play is " + chosenWayToPlay + " Also my favorite genre is " + chosenGenre)
-  var finalUrl = "https://api.rawg.io/api/games?page_size=40&parent_platforms=" + chosenConsole + "&tags=" + chosenWayToPlay + "&genres=" + chosenGenre + "&key=ac7de14847e84d37be3b60940720db8c"
+  var finalUrl = "https://api.boardgameatlas.com/api/search?" + playerCount + "&" + chosenGenre + "&client_id=w6w6fWAiC1"
 
   fetch(finalUrl)
   .then(function (response) {
