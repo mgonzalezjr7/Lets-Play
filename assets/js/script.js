@@ -44,8 +44,8 @@ searchBtn.addEventListener("click", function () {
 savedBtn.addEventListener("click", function () {
   startBtn.classList.add("hidden");
   document.querySelector(".cardDeck").style.display = "none";
-  test()
-  savedDeck.style.display = "flex"
+  showSaved();
+  savedDeck.style.display = "flex";
 });
 
 
@@ -197,21 +197,24 @@ for (let i = 0; i < cardEl.length; i++) {
   });
 };
 
-function test() {
-  for (var i = 0; i < localStorage.length; i++) {
-    var key = localStorage.key(i);
-    var savedGame = localStorage.getItem(key);
-    var savedUrl = "https://api.rawg.io/api/games?search=" + savedGame + "&key=ac7de14847e84d37be3b60940720db8c"
+function showSaved() {
+  let savedCards = document.querySelector(".savedCardDeck");
+
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
+    let savedGame = localStorage.getItem(key);
+    let savedUrl = "https://api.rawg.io/api/games?search=" + savedGame + "&key=ac7de14847e84d37be3b60940720db8c"
 
     fetch(savedUrl)
       .then(function (response) {
         return response.json();
       })
       .then(function (data) {
-        console.log(data);
+        let savedCard = document.createElement("div");
+        savedCard.classList.add("savedCard");
+        savedCard.innerHTML = "<img src='" + data.results[0].background_image + "' id='savedImage" + i + "'>" + "<h4 id='savedTitle" + i + "' class='butt'>" + data.results[0].name + "</h4>"
 
-        document.getElementById("savedImage").setAttribute("src", data.results[0].background_image);
-        document.getElementById("savedTitle").textContent = data.results[0].name;
-      })
+        savedCards.appendChild(savedCard);
+      });
   }
 }
