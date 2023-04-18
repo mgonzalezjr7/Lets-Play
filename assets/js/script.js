@@ -217,10 +217,14 @@ function showSaved() {
         return response.json();
       })
       .then(function (data) {
+        console.log(data)
         let savedCard = document.createElement("div");
         savedCard.classList.add("savedCard");
         savedCard.innerHTML = `<img src="${data.results[0].background_image}" id="savedImage${i}">
-        <h4 id="savedTitle${i}" class="butt">${data.results[0].name}</h4>`
+        <h4 id="savedTitle${i}">${data.results[0].name}</h4>
+        <p class="p1 released">Released: ${data.results[0].released}</p> 
+        <p class="p2 esrb">ESRB: ${data.results[0].esrb_rating?.name}</p> 
+        <p class="p3 metacritic">Metascore: ${data.results[0].metacritic}</p>`
 
         savedCards.appendChild(savedCard);
       });

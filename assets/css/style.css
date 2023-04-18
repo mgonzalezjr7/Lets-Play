@@ -219,7 +219,8 @@ nav {
   top: 0;
 }
 
-.card p {
+.card p,
+.savedCard p {
   display: none;
   padding: 5px;
   font-weight: bold;
@@ -233,17 +234,20 @@ nav {
   
 }
 
-.card:hover .p1 {
+.card:hover .p1,
+.savedCard:hover .p1 {
   display: flex;
   top: 25%;
 }
 
-.card:hover .p2 {
+.card:hover .p2,
+.savedCard:hover .p2 {
   display: flex;
   top: 50%;
 }
 
-.card:hover .p3 {
+.card:hover .p3,
+.savedCard:hover .p3 {
   display: flex;
   top: 75%;
 }
