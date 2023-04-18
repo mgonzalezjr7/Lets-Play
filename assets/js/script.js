@@ -200,6 +200,7 @@ for (let i = 0; i < cardEl.length; i++) {
 function showSaved() {
   let savedCards = document.querySelector(".savedCardDeck");
 
+  if (savedCards.children.length === 0) {
   for (let i = 0; i < localStorage.length; i++) {
     let key = localStorage.key(i);
     let savedGame = localStorage.getItem(key);
@@ -216,5 +217,5 @@ function showSaved() {
 
         savedCards.appendChild(savedCard);
       });
-  }
-}
+  }};
+};
