@@ -63,7 +63,7 @@
     z-index: 9999;
   }
 
-  /* Question CSS*/
+/* Question CSS*/
   #question-section {
     display: none;
     justify-content: center;
@@ -80,7 +80,7 @@
     font-weight: bold;
   }
 
-  /* Buttons without animation */
+/* Buttons without animation */
   .no-animation {
     animation: none !important;
   }
@@ -126,7 +126,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
 
- /* Card style */
+/* Card style */
   .cardDeck{
     display: none;
     flex-direction: row;
@@ -160,9 +160,19 @@
   .card img{
     height: 200px;
   }
-  
-  /* RESPONSIVE DESIGN */
 
+/* Saved Card Deck */
+  .savedCardDeck{
+    display: none;
+    flex-direction: row;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 20%;
+    left: 10%;
+  }
+
+/* RESPONSIVE DESIGN */
   @media screen and (max-width: 768px) {
     #question-section {
       flex-direction: column;

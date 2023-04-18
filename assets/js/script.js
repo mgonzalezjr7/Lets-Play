@@ -20,11 +20,13 @@ fetch(test2Url)
 
 
 // BUTTONS
-const startBtn = document.getElementById('start-bttn');
+const startBtn = document.getElementById("start-bttn");
 const searchBtn = document.getElementById("search-bttn");
-const questionSection = document.getElementById('question-section');
+const savedBtn = document.getElementById("saved-bttn")
+const questionSection = document.getElementById("question-section");
 const searchSection = document.getElementById("search-section");
 const searchForm = document.getElementById("search-form");
+const savedDeck = document.getElementById("savedCardDeck")
   
 startBtn.addEventListener("click", () => {
   startBtn.style.display = "none";
@@ -37,6 +39,13 @@ searchBtn.addEventListener("click", function() {
   questionSection.classList.add("hidden");
   searchSection.style.display='flex'
 });
+
+savedBtn.addEventListener("click", function() {
+  startBtn.classList.add("hidden");
+  savedDeck.style.display = "flex"
+});
+
+
 
 // QUIZ
 const questions = [
