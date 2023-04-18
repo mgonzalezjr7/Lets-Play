@@ -69,7 +69,8 @@ nav {
 }
 
 /* Question CSS*/
-#question-section {
+#question-section,
+#gameType {
   display: none;
   justify-content: center;
   align-items: center;
