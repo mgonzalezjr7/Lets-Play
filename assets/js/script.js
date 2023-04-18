@@ -42,7 +42,6 @@ searchBtn.addEventListener("click", function() {
 
 savedBtn.addEventListener("click", function() {
   startBtn.classList.add("hidden");
-  savedDeck.style.display = "flex"
 });
 
 

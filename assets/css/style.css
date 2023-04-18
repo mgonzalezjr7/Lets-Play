@@ -135,10 +135,16 @@
     position: absolute;
     top: 20%;
     left: 10%;
+    /* width: 20%; */
   }
 
-  .card {
-    background-color: #02388b;
+  /* .cardDeck > * {
+    flex-basis: calc(33.33% - 10px);
+    margin: 5px;
+  } */
+
+  /* .card {
+    background-color: #51B848;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     width: 350px;
@@ -159,6 +165,46 @@
 
   .card img{
     height: 200px;
+  } */
+
+  .card {
+    background-color: #51B848;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    position: relative;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(255, 1, 1, 0.984);
+  }
+  
+  .card img {
+    height: 200px;
+    transition: filter 0.3s ease-out;
+  }
+  
+  .card:hover img {
+    filter: blur(5px);
+  }
+  
+  .card h4 {
+    padding: 5px;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    transition: top 0.3s ease-out;
+  }
+  
+  .card:hover h4 {
+    top: 0; 
   }
 
 /* Saved Card Deck */
