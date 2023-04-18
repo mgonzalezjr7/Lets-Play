@@ -1,149 +1,154 @@
 /* Define the keyframes for the wiggle animation */
 @keyframes wiggle {
-    0% {
-      transform: rotate(0deg);
-    }
-    20% {
-      transform: rotate(10deg);
-    }
-    40% {
-      transform: rotate(-10deg);
-    }
-    60% {
-      transform: rotate(10deg);
-    }
-    80% {
-      transform: rotate(-10deg);
-    }
-    100% {
-      transform: rotate(0deg);
-    }
-  }
-  
-/* Apply the animation to buttons on hover */
-  button:hover {
-    animation: wiggle 0.3s ease-in-out;
-  }
-  
-  button:active {
-    transform: scale(0.9);
-    transition: all 0.2s ease-in-out;
-  }
-  
-  button:focus {
-    outline: none;
-  }
-  
-  button {
-    transition: all 0.2s ease-in-out;
-  }
-  
-/* Apply background and effect to webpage */
-  .background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    filter: blur(10px);
-    z-index: -1;
-  }
-  
-  .background img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  0% {
+    transform: rotate(0deg);
   }
 
-  nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999;
+  20% {
+    transform: rotate(10deg);
   }
+
+  40% {
+    transform: rotate(-10deg);
+  }
+
+  60% {
+    transform: rotate(10deg);
+  }
+
+  80% {
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Apply the animation to buttons on hover */
+button:hover {
+  animation: wiggle 0.3s ease-in-out;
+}
+
+button:active {
+  transform: scale(0.9);
+  transition: all 0.2s ease-in-out;
+}
+
+button:focus {
+  outline: none;
+}
+
+button {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Apply background and effect to webpage */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(10px);
+  z-index: -1;
+}
+
+.background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
 
 /* Question CSS*/
-  #question-section {
-    display: none;
-    justify-content: center;
-    align-items: center;
-  }
+#question-section {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
 
-  #question-section button {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    transition: none;
-    animation: none !important;
-    color: white;
-    font-weight: bold;
-  }
+#question-section button {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  transition: none;
+  animation: none !important;
+  color: white;
+  font-weight: bold;
+}
 
 /* Buttons without animation */
-  .no-animation {
-    animation: none !important;
-  }
+.no-animation {
+  animation: none !important;
+}
 
 /* Search section */
-  #search-section {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-  }
+#search-section {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
 
-  #search-section form {
-    display: flex;
-    align-items: center;
-  }
+#search-section form {
+  display: flex;
+  align-items: center;
+}
 
-  #search-section input[type="text"] {
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    margin-right: 10px;
-  }
+#search-section input[type="text"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-right: 10px;
+}
 
-  #search-section button[type="submit"] {
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: #333;
-    color: #fff;
-  }
+#search-section button[type="submit"] {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+}
 
 /* Show search section when search button is clicked */
-  #search-section form {
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
+#search-section form {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
 
 /* Card style */
-  .cardDeck{
-    display: none;
-    flex-direction: row;
-    align-content: flex-start;
-    flex-wrap: wrap;
-    position: absolute;
-    top: 20%;
-    left: 10%;
-    /* width: 20%; */
-  }
+.cardDeck {
+  display: none;
+  flex-direction: row;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  /* width: 20%; */
+}
 
-  /* .cardDeck > * {
+/* .cardDeck > * {
     flex-basis: calc(33.33% - 10px);
     margin: 5px;
   } */
 
-  /* .card {
+/* .card {
     background-color: #51B848;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -167,67 +172,96 @@
     height: 200px;
   } */
 
-  .card,
-  .savedCard {
-    background-color: #51B848;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    width: 350px;
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-    position: relative;
-  }
+.card,
+.savedCard {
+  background-color: #51B848;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  position: relative;
+}
+
+.card:hover,
+.savedCard:hover {
+  box-shadow: 0 8px 16px 0 rgba(255, 1, 1, 0.984);
+}
+
+.card img,
+.savedCard img {
+  height: 200px;
+  transition: filter 0.3s ease-out;
+}
+
+.card:hover img,
+.savedCard:hover img {
+  filter: blur(5px);
+}
+
+.card h4,
+.savedCard h4 {
+  padding: 5px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  transition: top 0.3s ease-out;
+  background-color: #51B848;
+}
+
+.card:hover h4,
+.savedCard:hover h4 {
+  top: 0;
+}
+
+.card p {
+  display: none;
+  padding: 5px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  transition: top 0.3s ease-out;
   
-  .card:hover,
-  .savedCard:hover {
-    box-shadow: 0 8px 16px 0 rgba(255, 1, 1, 0.984);
-  }
-  
-  .card img,
-  .savedCard img {
-    height: 200px;
-    transition: filter 0.3s ease-out;
-  }
-  
-  .card:hover img,
-  .savedCard:hover img {
-    filter: blur(5px);
-  }
-  
-  .card h4,
-  .savedCard h4 {
-    padding: 5px;
-    font-weight: bold;
-    color: white;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    margin: 0;
-    transition: top 0.3s ease-out;
-    background-color: #51B848;
-  }
-  
-  .card:hover h4,
-  .savedCard:hover h4 {
-    top: 0; 
-  }
+}
+
+.card:hover .released {
+  display: flex;
+  top: 25%;
+}
+
+.card:hover .esrb {
+  display: flex;
+  top: 50%;
+}
+
+.card:hover .metacritic {
+  display: flex;
+  top: 75%;
+}
 
 /* Saved Card Deck */
-  .savedCardDeck{
-    display: none;
-    flex-direction: row;
-    align-content: flex-start;
-    flex-wrap: wrap;
-    position: absolute;
-    top: 20%;
-    left: 10%;
-  }
+.savedCardDeck {
+  display: none;
+  flex-direction: row;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+}
 
 /* RESPONSIVE DESIGN */
-  @media screen and (max-width: 768px) {
-    #question-section {
-      flex-direction: column;
-    }
+@media screen and (max-width: 768px) {
+  #question-section {
+    flex-direction: column;
   }
+}
