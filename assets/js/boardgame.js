@@ -12,11 +12,11 @@ fetch(requestUrl)
 
 
 // BUTTONS
-const startBtn = document.getElementById('start-bttn');
-const searchBtn = document.getElementById("search-bttn");
-const questionSection = document.getElementById('question-section');
-const searchSection = document.getElementById("search-section");
-const searchForm = document.getElementById("search-form");
+// const startBtn = document.getElementById('start-bttn');
+// const searchBtn = document.getElementById("search-bttn");
+// const questionSection = document.getElementById('question-section');
+// const searchSection = document.getElementById("search-section");
+// const searchForm = document.getElementById("search-form");
   
 // startBtn.addEventListener('click', () => {
 //   startBtn.classList.add('hidden');
@@ -36,7 +36,7 @@ searchBtn.addEventListener("click", function() {
   searchSection.style.display='flex'
 });
 
-const questions = [
+const bgQuestions = [
   {
     question: "So are we going solo or playing with a group of friends?",
     options: [
@@ -57,17 +57,17 @@ const questions = [
 ];
 
 
-const questionContainer = document.getElementById("question");
-const optionContainer = document.getElementById("options");
-const scoreContainer = document.getElementById("score");
+// const questionContainer = document.getElementById("question");
+// const optionContainer = document.getElementById("options");
+// const scoreContainer = document.getElementById("score");
 
 let playerCount;
-let chosenGenre;
+let chosenBgGenre;
 
-let currentQuestionIndex = 0;
+let currentBgQuestionIndex = 0;
 
 function showQuestion() {
-  const question = questions[currentQuestionIndex];
+  const question = bgQuestions[currentBgQuestionIndex];
   questionContainer.textContent = question.question;
 
   optionContainer.innerHTML = "";
@@ -87,23 +87,23 @@ function showQuestion() {
         }
         else if (option === "Card Game") {
           //alert("Card Game")
-          chosenGenre = [{id: "eX8uuNlQkQ"}];
+          chosenBgGenre = [{id: "eX8uuNlQkQ"}];
         }
         else if (option === "Fantasy") {
           //alert("Fantasy")
-          chosenGenre = [{id: "ZTneo8TaIO"}];
+          chosenBgGenre = [{id: "ZTneo8TaIO"}];
         }
         else if (option === "Econimic") {
           //alert("Economic")
-          chosenGenre = [{id: "eX8uuNlQkQ"}];
+          chosenBgGenre = [{id: "eX8uuNlQkQ"}];
         }
         else if (option === "Sci-Fi") {
           //alert("Sci-Fi")
-          chosenGenre = [{id: "eX8uuNlQkQ"}];
+          chosenBgGenre = [{id: "eX8uuNlQkQ"}];
         }
-      currentQuestionIndex++;
+      currentBgQuestionIndex++;
 
-      if (currentQuestionIndex === questions.length) {
+      if (currentBgQuestionIndex === bgQuestions.length) {
         showResults();
       } else {
         showQuestion();
@@ -114,8 +114,8 @@ function showQuestion() {
 
 function showResults() {
   questionSection.style.display = "none";
-  //alert("My favorite way to game is on " + chosenConsole + " and my favorite way to play is " + chosenWayToPlay + " Also my favorite genre is " + chosenGenre)
-  var finalUrl = "https://api.boardgameatlas.com/api/search?" + playerCount + "&" + chosenGenre + "&client_id=w6w6fWAiC1"
+  //alert("My favorite way to game is on " + chosenConsole + " and my favorite way to play is " + chosenWayToPlay + " Also my favorite genre is " + chosenBgGenre)
+  var finalUrl = "https://api.boardgameatlas.com/api/search?" + playerCount + "&" + chosenBgGenre + "&client_id=w6w6fWAiC1"
 
   fetch(finalUrl)
   .then(function (response) {
