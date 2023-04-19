@@ -41,6 +41,12 @@ videoGameBtn.addEventListener("click", () => {
   showQuestion();
 });
 
+boardGameBtn.addEventListener("click", () => {
+  gameTypeEl.style.display = "none";
+  questionSection.style.display = "flex";
+  showBgQuestion();
+});
+
 searchBtn.addEventListener("click", function () {
   startBtn.classList.add("hidden");
   questionSection.classList.add("hidden");
@@ -218,9 +224,9 @@ function showSaved() {
   for (let i = 0; i < localStorage.length; i++) {
     let key = localStorage.key(i);
     let savedGame = localStorage.getItem(key);
-    let savedUrl = "https://api.rawg.io/api/games?search=" + savedGame + "&key=ac7de14847e84d37be3b60940720db8c"
-
-    fetch(savedUrl)
+    let savedVgUrl = "https://api.rawg.io/api/games?search=" + savedGame + "&key=ac7de14847e84d37be3b60940720db8c"
+    let savedBgUrl = "https://api.boardgameatlas.com/api/search?" +savedGame + "&client_id=w6w6fWAiC1"
+    fetch(savedVgUrl)
       .then(function (response) {
         return response.json();
       })
@@ -233,6 +239,23 @@ function showSaved() {
         <p class="p1 released">Released: ${data.results[0].released}</p> 
         <p class="p2 esrb">ESRB: ${data.results[0].esrb_rating?.name}</p> 
         <p class="p3 metacritic">Metascore: ${data.results[0].metacritic}</p>`
+
+        savedCards.appendChild(savedCard);
+      });
+
+    fetch(savedBgUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data)
+        let savedCard = document.createElement("div");
+        savedCard.classList.add("savedCard");
+        savedCard.innerHTML = `<img src="${data.games[0].image_url}" id="savedImage${i}">
+        <h4 id="savedTitle${i}">${data.games[0].name}</h4>
+        <p class="p1 released">Released: ${data.games[0].year_published}</p> 
+        <p class="p2 esrb">ESRB: ${data.games[0].price}</p> 
+        <p class="p3 metacritic">Metascore: ${data.games[0].players}</p>`
 
         savedCards.appendChild(savedCard);
       });
