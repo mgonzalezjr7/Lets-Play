@@ -127,26 +127,26 @@ function showBgResults() {
     const cardDeckEl = document.querySelector(".cardDeck");
     cardDeckEl.style.display = "flex";
     
-    const randomEl = Math.floor(Math.random() * data.results.length);
-    const randomEl2 = Math.floor(Math.random() * data.results.length);
-    const randomEl3 = Math.floor(Math.random() * data.results.length);
-    const randomEl4 = Math.floor(Math.random() * data.results.length);
-    const randomEl5 = Math.floor(Math.random() * data.results.length);
-    const randomEl6 = Math.floor(Math.random() * data.results.length);
+    const randomEl = Math.floor(Math.random() * data.games.length);
+    const randomEl2 = Math.floor(Math.random() * data.games.length);
+    const randomEl3 = Math.floor(Math.random() * data.games.length);
+    const randomEl4 = Math.floor(Math.random() * data.games.length);
+    const randomEl5 = Math.floor(Math.random() * data.games.length);
+    const randomEl6 = Math.floor(Math.random() * data.games.length);
 
-    document.getElementById("gameImage").setAttribute("src", data?.results?.[randomEl].background_image);
-    document.getElementById("gameImage2").setAttribute("src", data?.results?.[randomEl2].background_image);
-    document.getElementById("gameImage3").setAttribute("src", data?.results?.[randomEl3].background_image);
-    document.getElementById("gameImage4").setAttribute("src", data?.results?.[randomEl4].background_image);
-    document.getElementById("gameImage5").setAttribute("src", data?.results?.[randomEl5].background_image);
-    document.getElementById("gameImage6").setAttribute("src", data?.results?.[randomEl6].background_image);
+    document.getElementById("gameImage1").setAttribute("src", data?.games?.[randomEl]?.image_url);
+    document.getElementById("gameImage2").setAttribute("src", data?.games?.[randomEl2]?.image_url);
+    document.getElementById("gameImage3").setAttribute("src", data?.games?.[randomEl3]?.image_url);
+    document.getElementById("gameImage4").setAttribute("src", data?.games?.[randomEl4]?.image_url);
+    document.getElementById("gameImage5").setAttribute("src", data?.games?.[randomEl5]?.image_url);
+    document.getElementById("gameImage6").setAttribute("src", data?.games?.[randomEl6]?.image_url);
 
-    document.getElementById("gameTitle").textContent = data?.results?.[randomEl].name;
-    document.getElementById("gameTitle2").textContent = data?.results?.[randomEl2].name;
-    document.getElementById("gameTitle3").textContent = data?.results?.[randomEl3].name;
-    document.getElementById("gameTitle4").textContent = data?.results?.[randomEl4].name;
-    document.getElementById("gameTitle5").textContent = data?.results?.[randomEl5].name;
-    document.getElementById("gameTitle6").textContent = data?.results?.[randomEl6].name;
+    document.getElementById("gameTitle1").textContent = data?.games?.[randomEl].name;
+    document.getElementById("gameTitle2").textContent = data?.games?.[randomEl2].name;
+    document.getElementById("gameTitle3").textContent = data?.games?.[randomEl3].name;
+    document.getElementById("gameTitle4").textContent = data?.games?.[randomEl4].name;
+    document.getElementById("gameTitle5").textContent = data?.games?.[randomEl5].name;
+    document.getElementById("gameTitle6").textContent = data?.games?.[randomEl6].name;
 
     function test(){
       document.querySelector(".card").addEventListener("click", function(){
