@@ -115,7 +115,7 @@ function showBgQuestion() {
 function showBgResults() {
   questionSection.style.display = "none";
   //alert("My favorite way to game is on " + chosenConsole + " and my favorite way to play is " + chosenWayToPlay + " Also my favorite genre is " + chosenBgGenre)
-  var finalUrl = "https://api.boardgameatlas.com/api/search?" + playerCount + "&" + chosenBgGenre + "&client_id=w6w6fWAiC1"
+  var finalUrl = "https://api.boardgameatlas.com/api/search?" + playerCount + "&" + chosenBgGenre + "&limit=100&client_id=w6w6fWAiC1"
 
   fetch(finalUrl)
   .then(function (response) {
@@ -126,27 +126,22 @@ function showBgResults() {
 
     const cardDeckEl = document.querySelector(".cardDeck");
     cardDeckEl.style.display = "flex";
-    
-    const randomEl = Math.floor(Math.random() * data.games.length);
-    const randomEl2 = Math.floor(Math.random() * data.games.length);
-    const randomEl3 = Math.floor(Math.random() * data.games.length);
-    const randomEl4 = Math.floor(Math.random() * data.games.length);
-    const randomEl5 = Math.floor(Math.random() * data.games.length);
-    const randomEl6 = Math.floor(Math.random() * data.games.length);
 
-    document.getElementById("gameImage1").setAttribute("src", data?.games?.[randomEl]?.image_url);
-    document.getElementById("gameImage2").setAttribute("src", data?.games?.[randomEl2]?.image_url);
-    document.getElementById("gameImage3").setAttribute("src", data?.games?.[randomEl3]?.image_url);
-    document.getElementById("gameImage4").setAttribute("src", data?.games?.[randomEl4]?.image_url);
-    document.getElementById("gameImage5").setAttribute("src", data?.games?.[randomEl5]?.image_url);
-    document.getElementById("gameImage6").setAttribute("src", data?.games?.[randomEl6]?.image_url);
-
-    document.getElementById("gameTitle1").textContent = data?.games?.[randomEl].name;
-    document.getElementById("gameTitle2").textContent = data?.games?.[randomEl2].name;
-    document.getElementById("gameTitle3").textContent = data?.games?.[randomEl3].name;
-    document.getElementById("gameTitle4").textContent = data?.games?.[randomEl4].name;
-    document.getElementById("gameTitle5").textContent = data?.games?.[randomEl5].name;
-    document.getElementById("gameTitle6").textContent = data?.games?.[randomEl6].name;
+    for (let i = 1; i <= 6; i++) {
+      const randomEl = Math.floor(Math.random() * data.games.length);
+      const gameImageEl = document.getElementById(`gameImage${i}`);
+      const gameTitleEl = document.getElementById(`gameTitle${i}`);
+      const releasedEl = document.querySelector(`.released${i}`);
+      const esrbEl = document.querySelector(`.esrb${i}`)
+      const metacriticEl = document.querySelector(`.metacritic${i}`)
+      if (gameImageEl && gameTitleEl) {
+        gameImageEl.setAttribute("src", data?.games?.[randomEl]?.image_url);
+        gameTitleEl.textContent = data?.games?.[randomEl]?.name;
+        releasedEl.textContent = "Released: " + data?.games?.[randomEl]?.year_published;
+        esrbEl.textContent = "Price: $" + data?.games?.[randomEl]?.price;
+        metacriticEl.textContent = "Players: " + data?.games?.[randomEl]?.players;
+      }
+    }
 
     for (let i = 0; i < cardEl.length; i++) {
       cardEl[i].addEventListener("click", function () {
