@@ -147,6 +147,13 @@ function showBgResults() {
     document.getElementById("gameTitle4").textContent = data?.games?.[randomEl4].name;
     document.getElementById("gameTitle5").textContent = data?.games?.[randomEl5].name;
     document.getElementById("gameTitle6").textContent = data?.games?.[randomEl6].name;
+
+    for (let i = 0; i < cardEl.length; i++) {
+      cardEl[i].addEventListener("click", function () {
+        const h4El = this.querySelector("h4").textContent;
+        localStorage.setItem(h4El, "BG");
+      });
+    }
   });
 }
 
