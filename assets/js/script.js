@@ -99,6 +99,8 @@ let chosenConsole;
 let chosenWayToPlay;
 let chosenGenre;
 
+const cardEl = document.querySelectorAll(".card");
+
 let currentQuestionIndex = 0;
 
 function showQuestion() {
@@ -203,15 +205,13 @@ function showResults() {
             "Metascore: " + data?.results?.[randomEl]?.metacritic;
         }
       }
+      for (let i = 0; i < cardEl.length; i++) {
+        cardEl[i].addEventListener("click", function () {
+          const h4El = this.querySelector("h4").textContent;
+          localStorage.setItem(h4El, "VG");
+        });
+      }
     });
-}
-
-const cardEl = document.querySelectorAll(".card");
-for (let i = 0; i < cardEl.length; i++) {
-  cardEl[i].addEventListener("click", function () {
-    const h4El = this.querySelector("h4").textContent;
-    localStorage.setItem(h4El, h4El);
-  });
 }
 
 function showSaved() {
