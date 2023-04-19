@@ -41,6 +41,12 @@ videoGameBtn.addEventListener("click", () => {
   showQuestion();
 });
 
+boardGameBtn.addEventListener("click", () => {
+  gameTypeEl.style.display = "none";
+  questionSection.style.display = "flex";
+  showBgQuestion();
+});
+
 searchBtn.addEventListener("click", function () {
   startBtn.classList.add("hidden");
   questionSection.classList.add("hidden");

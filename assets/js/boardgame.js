@@ -24,17 +24,17 @@ fetch(requestUrl)
 //   questionSection.style.display='flex';
 // });
 
-startBtn.addEventListener("click", () => {
-  startBtn.style.display = "none";
-  questionSection.style.display = "flex";
-  showQuestion();
-});
+// startBtn.addEventListener("click", () => {
+//   startBtn.style.display = "none";
+//   questionSection.style.display = "flex";
+//   showBgQuestion();
+// });
 
-searchBtn.addEventListener("click", function() {
-  startBtn.classList.add("hidden");
-  questionSection.classList.add("hidden");
-  searchSection.style.display='flex'
-});
+// searchBtn.addEventListener("click", function() {
+//   startBtn.classList.add("hidden");
+//   questionSection.classList.add("hidden");
+//   searchSection.style.display='flex'
+// });
 
 const bgQuestions = [
   {
@@ -66,7 +66,7 @@ let chosenBgGenre;
 
 let currentBgQuestionIndex = 0;
 
-function showQuestion() {
+function showBgQuestion() {
   const question = bgQuestions[currentBgQuestionIndex];
   questionContainer.textContent = question.question;
 
@@ -104,15 +104,15 @@ function showQuestion() {
       currentBgQuestionIndex++;
 
       if (currentBgQuestionIndex === bgQuestions.length) {
-        showResults();
+        showBgResults();
       } else {
-        showQuestion();
+        showBgQuestion();
       }
     });
   });
 }
 
-function showResults() {
+function showBgResults() {
   questionSection.style.display = "none";
   //alert("My favorite way to game is on " + chosenConsole + " and my favorite way to play is " + chosenWayToPlay + " Also my favorite genre is " + chosenBgGenre)
   var finalUrl = "https://api.boardgameatlas.com/api/search?" + playerCount + "&" + chosenBgGenre + "&client_id=w6w6fWAiC1"
