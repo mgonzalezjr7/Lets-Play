@@ -148,16 +148,12 @@ function showBgResults() {
     document.getElementById("gameTitle5").textContent = data?.games?.[randomEl5].name;
     document.getElementById("gameTitle6").textContent = data?.games?.[randomEl6].name;
 
-    function test(){
-      document.querySelector(".card").addEventListener("click", function(){
+    for (let i = 0; i < cardEl.length; i++) {
+      cardEl[i].addEventListener("click", function () {
         const h4El = this.querySelector("h4").textContent;
-        
-          localStorage.setItem((h4El), h4El);
-        })
-    }
-
-    document.querySelector(".card").addEventListener("click", test())
-
+        localStorage.setItem(h4El, h4El);
+      });
+    };
   });
 }
 
