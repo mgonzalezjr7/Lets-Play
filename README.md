@@ -54,7 +54,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://mgonzalezjr7.github.io/Lets-Play/)
 
 Often there are points in time when you are looking for a new game, either to play alone or with friends. This website introduces a quick and simple way to find games and boardgames for your best game night! The Lets Play website starts with a quick quiz that asks the following
 

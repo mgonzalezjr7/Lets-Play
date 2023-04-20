@@ -258,3 +258,10 @@ cursor:grabbing
     flex-direction: column;
   }
 }
+
+@media screen and (max-width: 768px) {
+  /* Move search and saved buttons below nav bar */
+  .flex {
+    flex-direction: column;
+  }
+}
