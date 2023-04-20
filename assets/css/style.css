@@ -50,6 +50,14 @@ button {
   animation: none !important;
 }
 
+#bg-bttn {
+  animation: none !important;
+}
+
+#vg-bttn {
+  animation: none !important;
+}
+
 /* Apply background and effect to webpage */
 .background {
   position: fixed;
