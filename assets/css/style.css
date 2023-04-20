@@ -28,11 +28,13 @@
 /* Apply the animation to buttons on hover */
 button:hover {
   animation: wiggle 0.3s ease-in-out;
+  cursor:grab
 }
 
 button:active {
   transform: scale(0.9);
   transition: all 0.2s ease-in-out;
+  cursor: grabbing;
 }
 
 button:focus {
@@ -141,7 +143,6 @@ nav {
   position: absolute;
   top: 20%;
   left: 10%;
-  /* width: 20%; */
 }
 
 /* .cardDeck > * {
@@ -188,6 +189,12 @@ nav {
 .card:hover,
 .savedCard:hover {
   box-shadow: 0 8px 16px 0 rgba(255, 1, 1, 0.984);
+  cursor: grab;
+}
+
+
+.card:active {
+cursor:grabbing
 }
 
 .card img,

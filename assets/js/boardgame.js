@@ -1,41 +1,3 @@
-var requestUrl = "https://api.boardgameatlas.com/api/search?order_by=rank&ascending=false&client_id=w6w6fWAiC1"
-var test3Url = "https://api.boardgameatlas.com/api/search?max_players=2&client_id=w6w6fWAiC1"
-var test4Url = "https://api.boardgameatlas.com/api/search?max_players=1&pretty=true&client_id=w6w6fWAiC1"
-var test5Url = "https://api.boardgameatlas.com/api/game/categories?pretty=true&client_id=w6w6fWAiC1"
-fetch(requestUrl)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-  });
-
-
-// BUTTONS
-// const startBtn = document.getElementById('start-bttn');
-// const searchBtn = document.getElementById("search-bttn");
-// const questionSection = document.getElementById('question-section');
-// const searchSection = document.getElementById("search-section");
-// const searchForm = document.getElementById("search-form");
-  
-// startBtn.addEventListener('click', () => {
-//   startBtn.classList.add('hidden');
-//   questionSection.classList.remove('hidden');
-//   questionSection.style.display='flex';
-// });
-
-// startBtn.addEventListener("click", () => {
-//   startBtn.style.display = "none";
-//   questionSection.style.display = "flex";
-//   showBgQuestion();
-// });
-
-// searchBtn.addEventListener("click", function() {
-//   startBtn.classList.add("hidden");
-//   questionSection.classList.add("hidden");
-//   searchSection.style.display='flex'
-// });
-
 const bgQuestions = [
   {
     question: "So are we going solo or playing with a group of friends?",
@@ -56,11 +18,6 @@ const bgQuestions = [
   },
 ];
 
-
-// const questionContainer = document.getElementById("question");
-// const optionContainer = document.getElementById("options");
-// const scoreContainer = document.getElementById("score");
-
 let playerCount;
 let chosenBgGenre;
 
@@ -78,27 +35,21 @@ function showBgQuestion() {
     optionContainer.appendChild(button);
     button.addEventListener("click", () => {
       if (option === "Solo") {
-        //alert("Solo")
         playerCount = "max_players=1";
       }
       else if (option === "Friends") {
-          //alert("Friends");
           playerCount = "min_players=2";
         }
         else if (option === "Card Game") {
-          //alert("Card Game")
           chosenBgGenre = [{id: "eX8uuNlQkQ"}];
         }
         else if (option === "Fantasy") {
-          //alert("Fantasy")
           chosenBgGenre = [{id: "ZTneo8TaIO"}];
         }
         else if (option === "Econimic") {
-          //alert("Economic")
           chosenBgGenre = [{id: "eX8uuNlQkQ"}];
         }
         else if (option === "Sci-Fi") {
-          //alert("Sci-Fi")
           chosenBgGenre = [{id: "eX8uuNlQkQ"}];
         }
       currentBgQuestionIndex++;
@@ -114,7 +65,7 @@ function showBgQuestion() {
 
 function showBgResults() {
   questionSection.style.display = "none";
-  //alert("My favorite way to game is on " + chosenConsole + " and my favorite way to play is " + chosenWayToPlay + " Also my favorite genre is " + chosenBgGenre)
+
   var finalUrl = "https://api.boardgameatlas.com/api/search?" + playerCount + "&" + chosenBgGenre + "&limit=100&client_id=w6w6fWAiC1"
 
   fetch(finalUrl)
@@ -151,6 +102,3 @@ function showBgResults() {
     }
   });
 }
-
-
-
