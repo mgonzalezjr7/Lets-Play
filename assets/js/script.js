@@ -29,10 +29,12 @@ const questionSection = document.getElementById("question-section");
 const searchSection = document.getElementById("search-section");
 const searchForm = document.getElementById("search-form");
 const savedDeck = document.querySelector(".savedCardDeck")
+const copyRightEl = document.getElementById("copyRight");
 
 startBtn.addEventListener("click", () => {
   startBtn.style.display = "none";
   gameTypeEl.style.display = "flex";
+  copyRightEl.style.display = "none";
 });
 
 videoGameBtn.addEventListener("click", () => {
@@ -51,7 +53,7 @@ searchBtn.addEventListener("click", function () {
   startBtn.classList.add("hidden");
   questionSection.classList.add("hidden");
   searchSection.style.display = 'flex'
-
+  copyRightEl.style.display = "none";
 });
 
 savedBtn.addEventListener("click", function () {
@@ -60,6 +62,7 @@ savedBtn.addEventListener("click", function () {
   questionSection.style.display = "none";
   showSaved();
   savedDeck.style.display = "flex";
+  copyRightEl.style.display = "none";
 });
 
 
