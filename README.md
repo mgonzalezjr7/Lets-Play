@@ -181,7 +181,9 @@ Distributed under the Creative Commons Legal Code License. See `LICENSE.txt` for
 ## Contact
 
 Zane Werle - [@your_twitter](https://twitter.com/your_username) - email@example.com
+
 Miguel Gonzalez - [@your_twitter](https://twitter.com/your_username) - email@example.com
+
 Paul Tuemler - [@your_twitter](https://twitter.com/your_username) - email@example.com
 
 Project Link: [https://github.com/mgonzalezjr7/Lets-Play](https://github.com/mgonzalezjr7/Lets-Play)
