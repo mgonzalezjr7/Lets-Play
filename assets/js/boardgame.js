@@ -89,7 +89,7 @@ function showBgResults() {
         gameImageEl.setAttribute("src", data?.games?.[randomEl]?.image_url);
         gameTitleEl.textContent = data?.games?.[randomEl]?.name;
         releasedEl.textContent = "Released: " + data?.games?.[randomEl]?.year_published;
-        esrbEl.textContent = "Price: $" + data?.games?.[randomEl]?.price;
+        esrbEl.textContent = "Play Time: " + data?.games?.[randomEl]?.playtime + " Minutes";
         metacriticEl.textContent = "Players: " + data?.games?.[randomEl]?.players;
       }
     }

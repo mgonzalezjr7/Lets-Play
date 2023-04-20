@@ -229,7 +229,7 @@ function showSaved() {
             savedCard.innerHTML = `<img src="${data.games[0].image_url}" id="savedImage${i}">
         <h4 id="savedTitle${i}">${data.games[0].name}</h4>
         <p class="p1 released">Released: ${data.games[0].year_published}</p> 
-        <p class="p2 esrb">Price:  $${data.games[0].price}</p> 
+        <p class="p2 esrb">Play Time: ${data.games[0].playtime} Minutes</p> 
         <p class="p3 metacritic">Players: ${data.games[0].players}</p>`;
 
             savedCards.appendChild(savedCard);
