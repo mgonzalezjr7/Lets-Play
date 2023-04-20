@@ -1,4 +1,4 @@
-/* Define the keyframes for the wiggle animation */
+/* Set wiggle animation */
 @keyframes wiggle {
   0% {
     transform: rotate(0deg);
@@ -25,7 +25,7 @@
   }
 }
 
-/* Apply the animation to buttons on hover */
+/* BUTTON CSS */
 button:hover {
   animation: wiggle 0.3s ease-in-out;
   cursor:grab
@@ -45,6 +45,11 @@ button {
   transition: all 0.2s ease-in-out;
 }
 
+/* Buttons without animation */
+.no-animation {
+  animation: none !important;
+}
+
 /* Apply background and effect to webpage */
 .background {
   position: fixed;
@@ -61,6 +66,9 @@ button {
   height: 100%;
   object-fit: cover;
 }
+
+
+/* WEBPAGE BODY */
 
 nav {
   position: fixed;
@@ -86,11 +94,6 @@ nav {
   animation: none !important;
   color: white;
   font-weight: bold;
-}
-
-/* Buttons without animation */
-.no-animation {
-  animation: none !important;
 }
 
 /* Search section */
@@ -134,7 +137,7 @@ nav {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Card style */
+/* CARD STYLING */
 .cardDeck {
   display: none;
   flex-direction: row;
@@ -162,7 +165,6 @@ nav {
   box-shadow: 0 8px 16px 0 rgba(255, 1, 1, 0.984);
   cursor: grab;
 }
-
 
 .card:active {
 cursor:grabbing
