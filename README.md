@@ -54,7 +54,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://mgonzalezjr7.github.io/Lets-Play/)
+[![Lets Play Screen Shot][product-screenshot]](https://mgonzalezjr7.github.io/Lets-Play/)
 
 Often there are points in time when you are looking for a new game, either to play alone or with friends. This website introduces a quick and simple way to find games and boardgames for your best game night! The Lets Play website starts with a quick quiz that asks the following
 
@@ -186,7 +186,7 @@ Miguel Gonzalez - [@your_twitter](https://twitter.com/your_username) - email@exa
 
 Paul Tuemler - [@your_twitter](https://twitter.com/your_username) - email@example.com
 
-Project Link: [https://github.com/mgonzalezjr7/Lets-Play](https://github.com/mgonzalezjr7/Lets-Play)
+Project GitHub Link: [https://github.com/mgonzalezjr7/Lets-Play](https://github.com/mgonzalezjr7/Lets-Play)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -198,7 +198,6 @@ Project Link: [https://github.com/mgonzalezjr7/Lets-Play](https://github.com/mgo
 Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
 * [Tailwind](https://tailwindui.com/?ref=top)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
